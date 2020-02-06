@@ -41,7 +41,7 @@ public class BasicJava7 {
 				index = -1;
 			}
 		}
-		else if (str.length() == 0) {
+		else if(str.length() == 0) {
 			index = -1;
 		}
 		return index;

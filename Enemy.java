@@ -3,4 +3,5 @@ public class Enemy extends Character {
   private char[][] appearance;
   
   
+  
 }

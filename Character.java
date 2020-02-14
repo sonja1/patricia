@@ -16,13 +16,31 @@ public class Character {
 			  expPoints -= addition;
 		  }
 	  }
+	  if (stat.equals("mp")) {
+		  if (addition <= expPoints) {
+			  mp += addition;
+			  expPoints -= addition;
+		  }
+	  }
+	  if (stat.equals("attack")) {
+		  if (addition <= expPoints) {
+			  attack += addition;
+			  expPoints -= addition;
+		  }
+	  }
+	  if (stat.equals("defense")) {
+		  if (addition <= expPoints) {
+			  defense += addition;
+			  expPoints -= addition;
+		  }
+	  }
   }
   
   public void levelUp() {
 	  if (level < maxLevel) {
 		  level++;
-		  expPoints = level/2;
-		  increase
+		  expPoints = level%2;
+		  this.increase(hp,addition);
 		  
 	  }
 	  

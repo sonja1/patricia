@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Move {
-	private final int NUMSTATS = 5;
+	private final int NUMSTATS = 4;
 	private String name;
 	private int power;
 	private double accuracy = 0;

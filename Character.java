@@ -10,7 +10,7 @@ public class Character {
   private int maxHp; /
   private Move[] moves;
   private ArrayList<Item> items = new ArrayList<Item>();
-  private Item[] equipped;
+  private Item[] equipped; // don't know what to do with this yet orz
   
   
   //Constructors
@@ -41,7 +41,8 @@ public class Character {
 	  this.speed = aCharacter.speed;
 	  this.currentHp =aCharacter.currentHp;
 	  this.maxHp = aCharacter.maxHp;
-	  this.moves = Character.moves;
+	  this.moves = aCharacter.moves;
+	  this.items = aCharacter.items;
   }
   
   // Getters 

@@ -2,6 +2,22 @@ public class Player extends Character {
   private int xp = 0;
   private int level;
   
+  //Constructor
+  
+  public Player(String aName, int anHp, int anAtk, int aDef, int aSpeed, int anXp, int aLevel) {
+	  super(String aName, int anHp, int anAtk, int aDef, int aSpeed);
+	  xp = anXp;
+	  level = aLevel;
+  }
+  //Getters
+  
+  public int getLevel() {
+	  return level;
+  }
+  
+  public int getXp() {
+	  return xp;
+  }
   //Methods
   
   public void levelUp(int addXp) {

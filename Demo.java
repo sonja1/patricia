@@ -80,7 +80,7 @@ public class Demo {
 	  //Player gets attacked by an enemy :(
 	  System.out.println("Now we will have a dummy enemy use the move on the player.");
 	  int expectedDecreaseInHp = (dummyMove.getPower()*dummyEnemy.getAtk())/(dummyPlayer.getDef());
-	  System.out.println("The current HP should decrease by "+ expectedDecreaseInHp);
+	  System.out.println("The current HP should decrease by "+ expectedDecreaseInHp + ", or until it reaches 0.");
 	  dummyPlayer.useMove(dummyMove,dummyEnemy);
 	  System.out.print("Would you like to view the dummy player's current HP after being attacked? yes or no: ");
 	  if ((keyboard.next()).equals("yes")) {
@@ -106,15 +106,26 @@ public class Demo {
 			  if ((keyboard.next()).equals("yes")) {
 				  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());
 			  }
+			  if (dummyPlayer.getCurrentHp() < dummyPlayer.getMaxHp()) {
+				  System.out.println("Would you like to use another item to further heal the dummy player? yes or no: ");
+				  if ((keyboard.next()).equals("yes")) {
+					  if (dummyItem1.getConsumable() == false) {
+						  System.out.println("You only have item 2 available, so it is used. This will add a maximum of "+ item2StatChanges[3] + " HP");
+						  dummyPlayer.useItem(dummyItem2);
+						  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());
+					  } else {
+						  System.out.println("You only have item 1 available, so it is used. This will add a maximum "+ item1StatChanges[3] + " HP");
+						  dummyPlayer.useItem(dummyItem1);
+						  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());
+						  
+					  }
+					  
+				  }
+			  }
+			  
+			 
+
 		  }
-	  //Player heals themselves :)
-	  
-	  /*System.out.println("The HP should increase by "+ item1StatChanges[3]);
-	  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());
-	  
-	  //Hp is still not full :( but we have another healing item :)
-	  dummyPlayer.useItem(dummyItem2);
-	  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());*/
-	  
+	 System.out.println("Demo complete."); 
   }
 }

@@ -35,7 +35,7 @@ public class Player extends Character {
 	      super.setDef(super.getDef()+addDef);
 	      super.setSpeed(super.getSpeed()+addSpeed);
 	      super.setMaxHp(super.getMaxHp()+addHp);
-	      super.setCurrentHp(super.getCurrentHp + addHp);
+	      super.setCurrentHp(super.getCurrentHp() + addHp);
 	      xp = 0;
   }
 }

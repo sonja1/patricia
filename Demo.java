@@ -61,7 +61,9 @@ public class Demo {
 	 
 	  
 	  //Player gets attacked by an enemy :(
-	  
+	  System.out.println("Now we will have the enemy use the move on the player.");
+	  int expectedDecreaseInHp = (dummyMove.getPower()*dummyEnemy.getAtk())/(dummyPlayer.getDef());
+	  System.out.println("The current HP should decrease by "+ expectedDecreaseInHp);
 	  dummyPlayer.useMove(dummyMove,dummyEnemy);
 	  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());
   }

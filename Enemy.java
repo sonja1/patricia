@@ -1,6 +1,6 @@
 public class Enemy extends Character {
   private char[][] appearance; 
-  private Item droppable;
+  private Items droppable;
   private int tier;
   
   //Constructor

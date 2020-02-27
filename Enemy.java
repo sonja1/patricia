@@ -6,11 +6,11 @@ public class Enemy extends Character {
   
   //Constructor
   
-  public Enemy (int aTier) {
-	  
+  public Enemy (int aTier, String aName, int anHp, int anAtk, int aDef, int aSpeed) {
+	  super(aName,anHp,anAtk,aDef,aSpeed);
+	  tier = aTier;  
   }
   
-  //Copy constructor
   
   //Getters
   

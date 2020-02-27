@@ -85,7 +85,7 @@ public class Character {
 	  atk += moveStatChanges[0];
 	  def += moveStatChanges[1];
 	  speed += moveStatChanges[2];
-	  currentHp += moveStatChanges[3]; /
+	  currentHp += moveStatChanges[3]; 
   }
 
   public void useItem(Items anItem) {

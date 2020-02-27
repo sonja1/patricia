@@ -93,9 +93,10 @@ public class Character {
 
   public void useItem(Items anItem) {
 	  if (anItem.getConsumable() == true) {
-		  atk += anItem.statChange[0];
-		  def += anItem.statChange[1];
-		  speed += anItem.statChange[2];
+		  int[] statChange = anItem.getStatChange();
+		  atk += statChange[0];
+		  def += statChange[1];
+		  speed += statChange[2];
 		  currentHp += anItem.statChange[3];
 		  items.remove(anItem);
 	  }

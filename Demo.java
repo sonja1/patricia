@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Demo {
   public static void main(String[] args) {
-	  //Setting dummy character, enemy, move, and 
-	  Player dummyPlayer = new Player("dummy player",10,11,12,13,0,1);
+	  //Setting dummy player, enemy, move, item
+	  Player dummyPlayer = new Player(0,1, "dummy player",10,11,12,13)
 	  
 	  //Getting the maximum HP
 	  

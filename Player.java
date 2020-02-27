@@ -4,23 +4,14 @@ public class Player extends Character {
   
   //Constructor
   
-  public Player(String aName, int anHp, int anAtk, int aDef, int aSpeed, int anXp, int aLevel) {
-	  name = aName;
-	  if (anHp > 0) {
-		  maxHp = anHp;
-		  currentHp = anHp;
+  public Player(int anXp, int aLevel, String aName, int anHp, int anAtk, int aDef, int aSpeed) {
+	  super(aName, anHp, anAtk, aDef, aSpeed);
+	  if (anXp >= 0) {
+		  xp = anXp;
 	  }
-	  if (anAtk > 0) {
-		  atk = anAtk;
+	  if (aLevel > 0) {
+		  level = aLevel;
 	  }
-	  if (aDef > 0) {
-		  def = aDef;
-	  }
-	  if (aSpeed > 0) {
-		  speed = aSpeed;
-	  }
-	  xp = anXp;
-	  level = aLevel;
   }
   //Getters
   
@@ -40,10 +31,10 @@ public class Player extends Character {
   
   public void allotStats(int[4] stats) {
 	  if (stats[0]+stats[1]+stats[2]+stats[3] == xp)
-		  atk = this.getAtk() + stats[0];
-	      def = this.getDef() + stats[1];
-	      speed = this.getSpeed() + stats[2];
-	      maxHp = this.getMaxHp() + stats[3];
+		  atk = += stats[0];
+	      def = += stats[1];
+	      speed = += stats[2];
+	      maxHp = += stats[3];
 	      xp = 0;
   }
 }

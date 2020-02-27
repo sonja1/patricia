@@ -16,6 +16,15 @@ public class Demo {
 	  Items dummyItem1 = new Items(true,itemList,item1StatChanges,"dummy item 1");
 	  Items dummyItem2 =  new Items(true,itemList,item2StatChanges,"dummy item 2");
 	  
+	  System.out.print("Would you like to name the dummy character? yes or no: ");
+	  if ((keyboard.next()).equals("yes")) {
+		  System.out.print("Name your character: ");
+		  dummyPlayer.setName(keyboard.next());
+		  System.out.println("The dummy character's name is now " + dummyPlayer.getName());
+	  } else {
+		  System.out.println("The dummy character's name is now " + dummyPlayer.getName());
+	  }
+	  
 	  //Getting the player's initial stats 
 	  System.out.print("Would you like to view the dummy player's stats? yes or no: ");
 	  if ((keyboard.next()).equals("yes")) {

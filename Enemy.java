@@ -1,5 +1,4 @@
 public class Enemy extends Character {
-  private String type;
   private char[][] appearance; 
   private Item droppable;
   private int tier;
@@ -18,8 +17,12 @@ public class Enemy extends Character {
 	  return tier;
   }
   
-  public String getType() {
-	  return type;
+  //Setters
+  
+  public void setTier(int aTier) {
+	  if (aTier > 0) {
+		  tier = aTier;
+	  }
   }
   
 }

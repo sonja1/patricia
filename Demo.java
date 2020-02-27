@@ -7,6 +7,9 @@ public class Demo {
 	  
 	  //Setting dummy player, enemy, move, item
 	  Player dummyPlayer = new Player(0,1, "dummy player",10,11,12,13);
+	  Enemy dummyEnemy = new Enemy(1,"dummy enemy", 10,12,10,12);
+	  Move dummyItem = new Move("dummy move",20,1.0, [0,0,0,0],true);
+	  
 	  
 	  //Getting the player's initial stats 
 	  System.out.println("Initial attack: "+ dummyPlayer.getAtk());
@@ -48,11 +51,17 @@ public class Demo {
 	  dummyPlayer.allotStats(addAtk,addDef,addSpeed,addHp);
 	  System.out.println("Stats have been allotted as the player levelled up.");
 	  
-	  System.out.println("New attack: "+dummyPlayer.getAtk());
+	  System.out.println("New attack: "+ dummyPlayer.getAtk());
 	  System.out.println("New defense: "+ dummyPlayer.getDef());
 	  System.out.println("New speed: "+ dummyPlayer.getSpeed());
-	  System.out.println("New max HP: "+dummyPlayer.getMaxHp());
+	  System.out.println("New max HP: "+ dummyPlayer.getMaxHp());
+	  System.out.println("New current HP: "+ dummyPlayer.getCurrentHp());
 	  System.out.println("xp: "+ dummyPlayer.getXp());
+	 
 	  
+	  //Player gets attacked by an enemy :(
+	  
+	  dummyPlayer.useMove(dummyMove,dummyEnemy);
+	  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());
   }
 }

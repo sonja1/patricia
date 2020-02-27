@@ -5,7 +5,20 @@ public class Player extends Character {
   //Constructor
   
   public Player(String aName, int anHp, int anAtk, int aDef, int aSpeed, int anXp, int aLevel) {
-	  super(String aName, int anHp, int anAtk, int aDef, int aSpeed);
+	  name = aName;
+	  if (anHp > 0) {
+		  maxHp = anHp;
+		  currentHp = anHp;
+	  }
+	  if (anAtk > 0) {
+		  atk = anAtk;
+	  }
+	  if (aDef > 0) {
+		  def = aDef;
+	  }
+	  if (aSpeed > 0) {
+		  speed = aSpeed;
+	  }
 	  xp = anXp;
 	  level = aLevel;
   }

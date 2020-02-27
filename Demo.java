@@ -8,7 +8,8 @@ public class Demo {
 	  //Setting dummy player, enemy, move, item
 	  Player dummyPlayer = new Player(0,1, "dummy player",10,11,12,13);
 	  Enemy dummyEnemy = new Enemy(1,"dummy enemy", 10,12,10,12);
-	  Move dummyItem = new Move("dummy move",20,1.0, [0,0,0,0],true);
+	  int[] moveStatChanges = {0,0,0,0};
+	  Move dummyMove = new Move("dummy move",20,1.0, moveStatChanges,true);
 	  
 	  
 	  //Getting the player's initial stats 

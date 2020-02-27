@@ -11,7 +11,7 @@ public class Demo {
 	  int[] moveStatChanges = {0,0,0,0};
 	  Move dummyMove = new Move("dummy move",20,1.0, moveStatChanges,true);
 	  int[] item1StatChanges = {0,0,0,10};
-	  int[] item2StatChanges = {0,0,0,10};
+	  int[] item2StatChanges = {0,0,0,20};
 	  String[] itemList = new String[100];
 	  Items dummyItem1 = new Items(true,itemList,item1StatChanges,"dummy item 1");
 	  Items dummyItem2 =  new Items(true,itemList,item2StatChanges,"dummy item 2");

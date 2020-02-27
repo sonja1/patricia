@@ -81,14 +81,11 @@ public class Character {
 
   public void useMove(Move aMove, Character anAttacker) {
 	  currentHp = currentHp - (aMove.getPower()*anAttacker.getAtk())/(def);
-	  // this is super rough but im assuming this method being used on the character is the character getting attacked???
-	  // we can come up with a better formula later tho
-	  // i think there should be a multiplier before the second term that is either 0 or 1 based on whether the attack hits or not
-	  // let me know what y'all think tho lol
-	  atk += aMove.statChanges[0];
-	  def += aMove.statChanges[1];
-	  speed += aMove.statChanges[2];
-	  currentHp += aMove.statChanges[3]; //lmao pls tell me this is how u access an index
+	  int[] moveStatChanges = aMove.getStatChanges();
+	  atk += moveStatChanges[0];
+	  def += moveStatChanges[1];
+	  speed += moveStatChanges[2];
+	  currentHp += moveStatChanges[3]; /
   }
 
   public void useItem(Items anItem) {
@@ -97,7 +94,7 @@ public class Character {
 		  atk += statChange[0];
 		  def += statChange[1];
 		  speed += statChange[2];
-		  currentHp += anItem.statChange[3];
+		  currentHp += statChange[3];
 		  items.remove(anItem);
 	  }
   }

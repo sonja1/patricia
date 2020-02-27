@@ -40,10 +40,10 @@ public class Player extends Character {
   
   public void allotStats(int[4] stats) {
 	  if (stats[0]+stats[1]+stats[2]+stats[3] == xp)
-		  this.atk += stats[0];
-	      this.def += stats[1];
-	      this.speed += stats[2];
-	      this.maxHp += stats[3];
-	      this.xp = 0;
+		  atk = this.getAtk() + stats[0];
+	      def = this.getDef() + stats[1];
+	      speed = this.getSpeed() + stats[2];
+	      maxHp = this.getMaxHp() + stats[3];
+	      xp = 0;
   }
 }

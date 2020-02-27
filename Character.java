@@ -10,7 +10,7 @@ public class Character {
   private int maxHp; /
   private Move[] moves;
   private ArrayList<Item> items = new ArrayList<Item>();
-  private Item[] equipped; // don't know what to do with this yet orz
+  private Item[] equipped; 
   
   
   //Constructors
@@ -97,10 +97,11 @@ public class Character {
 		  def += anItem.statChange[1];
 		  speed += anItem.statChange[2];
 		  currentHp += anItem.statChange[3];
-		  items.remove(anItem);
-		  
+		  items.remove(anItem);  
 	  }
   }
+  
+  
   
   
   

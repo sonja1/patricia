@@ -1,6 +1,6 @@
 public class Enemy extends Character {
   private String type;
-  private char[][] appearance; // we'll deal with this later when we do the graphic user interface???
+  private char[][] appearance; 
   private Item droppable;
   private int tier;
   
@@ -16,6 +16,10 @@ public class Enemy extends Character {
   
   public int getTier() {
 	  return tier;
+  }
+  
+  public String getType() {
+	  return type;
   }
   
 }

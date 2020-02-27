@@ -104,6 +104,9 @@ public class Character {
 
   public void useMove(Move aMove, Character anAttacker) {
 	  currentHp = currentHp - (aMove.getPower()*anAttacker.getAtk())/(def);
+	  if (currentHp < 0) {
+		  currentHp = 0;
+	  }
 	  int[] moveStatChanges = aMove.getStatChanges();
 	  atk += moveStatChanges[0];
 	  def += moveStatChanges[1];

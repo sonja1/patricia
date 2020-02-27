@@ -10,7 +10,11 @@ public class Demo {
 	  Enemy dummyEnemy = new Enemy(1,"dummy enemy", 10,12,10,12);
 	  int[] moveStatChanges = {0,0,0,0};
 	  Move dummyMove = new Move("dummy move",20,1.0, moveStatChanges,true);
-	  
+	  int[] item1StatChanges = {0,0,0,10};
+	  int[] item2StatChanges = {0,0,0,10};
+	  String[] itemList = new String[100];
+	  Items dummyItem1 = new Items(true,itemList,item1StatChanges,"dummy item 1");
+	  Items dummyItem2 =  new Items(true,itemList,item2StatChanges,"dummy item 2");
 	  
 	  //Getting the player's initial stats 
 	  System.out.println("Initial attack: "+ dummyPlayer.getAtk());
@@ -66,5 +70,16 @@ public class Demo {
 	  System.out.println("The current HP should decrease by "+ expectedDecreaseInHp);
 	  dummyPlayer.useMove(dummyMove,dummyEnemy);
 	  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());
+	  
+	  //Player heals themselves :)
+	  System.out.println("The player's HP is low, let's heal them :)");
+	  dummyPlayer.useItem(dummyItem1);
+	  System.out.println("The HP should increase by "+ item1StatChanges[3]);
+	  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());
+	  
+	  //Hp is still not full :( but we have another healing item :)
+	  dummyPlayer.useItem(dummyItem2);
+	  System.out.println("Current HP: "+ dummyPlayer.getCurrentHp());
+	  
   }
 }

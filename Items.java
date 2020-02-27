@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Items {
-	private final int stat = 5;
+	private final int stat = 4;
 	private final int capacity = 100;
 	private int num;
 	private boolean consumable;

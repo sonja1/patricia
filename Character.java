@@ -117,8 +117,12 @@ public class Character {
 		  atk += statChange[0];
 		  def += statChange[1];
 		  speed += statChange[2];
-		  currentHp += statChange[3];
-		  items.remove(anItem);
+		  if (statChange[3] >= this.getMaxHp()-this.getCurrentHp()) {
+			  currentHp = this.getMaxHp();
+		  }
+		  else {
+			  currentHp += statChange[3];
+		  }
 	  }
   }
 

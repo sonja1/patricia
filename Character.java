@@ -9,8 +9,8 @@ public class Character {
   private int currentHp; // index 3
   private int maxHp; 
   private Move[] moves;
-  private ArrayList<Item> items = new ArrayList<Item>();
-  private Item[] equipped;
+  private ArrayList<Items> items = new ArrayList<Items>();
+  private Items[] equipped;
 
 
   //Constructors

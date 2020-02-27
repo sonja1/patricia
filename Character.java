@@ -74,9 +74,32 @@ public class Character {
 	  return moves;
   }
 
-  //do we need setters for this lol
+  //Setters
+  
+  public void setName(String aName) {
+	  name = aName;
+  }
+  public void setCurrentHp(int aCurrentHp) {
+	  currentHp = aCurrentHp;;
+  }
 
+  public void setMaxHp(int aMaxHp) {
+	  maxHp = aMaxHp;
+  }
 
+  public void setAtk(int anAtk) {
+	  atk = anAtk;
+  }
+
+  public void setDef(int aDef) {
+	  def = aDef;
+  }
+
+  public void setSpeed(int aSpeed) {
+	  speed = aSpeed;
+  }
+
+ 
   //Methods
 
   public void useMove(Move aMove, Character anAttacker) {

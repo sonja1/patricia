@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Demo {
   public static void main(String[] args) {
 	  //Setting dummy player, enemy, move, item
-	  Player dummyPlayer = new Player(0,1, "dummy player",10,11,12,13)
+	  Player dummyPlayer = new Player(0,1, "dummy player",10,11,12,13);
 	  
 	  //Getting the maximum HP
 	  

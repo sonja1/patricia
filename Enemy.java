@@ -1,21 +1,28 @@
 public class Enemy extends Character {
-  private String type;
-  private char[][] appearance; // we'll deal with this later when we do the graphic user interface???
-  private Item droppable;
+  private char[][] appearance; 
+  private Items droppable;
   private int tier;
   
   //Constructor
   
-  public Enemy (int aTier) {
-	  
+  public Enemy (int aTier, String aName, int anHp, int anAtk, int aDef, int aSpeed) {
+	  super(aName,anHp,anAtk,aDef,aSpeed);
+	  tier = aTier;  
   }
   
-  //Copy constructor
   
   //Getters
   
   public int getTier() {
 	  return tier;
+  }
+  
+  //Setters
+  
+  public void setTier(int aTier) {
+	  if (aTier > 0) {
+		  tier = aTier;
+	  }
   }
   
 }

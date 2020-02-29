@@ -103,7 +103,12 @@ public class Character {
   //Methods
 
   public void useMove(Move aMove, Character anAttacker) {
-	  currentHp = currentHp - (aMove.getPower()*anAttacker.getAtk())/(def);
+	  if(aMove.getPower()>=0){
+		  currentHp = currentHp - (aMove.getPower()*anAttacker.getAtk())/(def);
+	  }
+	  else{
+		  currentHp = currentHp - (aMove.getPower()*anAttacker.getAtk());
+	  }
 	  if (currentHp < 0) {
 		  currentHp = 0;
 	  }

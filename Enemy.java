@@ -25,4 +25,14 @@ public class Enemy extends Character {
 	  }
   }
   
+  public void setStats(Player aPlayer, int aTier) {
+	  int playerTotalStat = aPlayer.getAtk() + aPlayer.getDef() + aPlayer.getSpeed() + aPlayer.getMaxHp();
+	  int enemyTotalStat = (1 + (aTier*playerTotalStat)/10);
+	  this.setAtk(enemyTotalStat/4);
+	  this.setDef(enemyTotalStat/4);
+	  this.setSpeed(enemyTotalStat/4);
+	  this.setMaxHp(enemyTotalStat/4);
+	  this.setCurrentHp(enemyTotalStat/4)
+  }
+  
 }

@@ -17,11 +17,12 @@ public class Battle {
 						anEnemy.useMove(aMove);
 					}
 				}
-				Move enemyMove = r.next();
-				aPlayer.useMove(enemyMove); 
-				
-			}
-		}
+				if (anEnemy.getCurrentHp() > 0) {
+					Move enemyMove = r.next();
+					aPlayer.useMove(enemyMove); 		
+			    }
+		    }
+	    }
 		
 	}
 }

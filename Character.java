@@ -81,7 +81,7 @@ public class Character {
 		name = aName;
 	}
 	public void setCurrentHp(int aCurrentHp) {
-		currentHp = aCurrentHp;;
+		currentHp = aCurrentHp;
 	}
 
 	public void setMaxHp(int aMaxHp) {

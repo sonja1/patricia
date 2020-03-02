@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Battle {
   
-	//Constructors
+	//Constructors but tbh im not sure what else we need for this :/
 	public Battle(Player aPlayer, Enemy anEnemy)) {
 		Move[] usablePlayerMoves = aPlayer.getMoves();
 		Move[] enemyMoves = anEnemy.getMoves();
@@ -18,7 +18,7 @@ public class Battle {
 					}
 				}
 				Move enemyMove = r.next();
-				aPlayer.useMove(enemyMove);
+				aPlayer.useMove(enemyMove); 
 				
 			}
 		}

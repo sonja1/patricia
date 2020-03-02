@@ -8,7 +8,7 @@ public class Move {
 	private int[] statChanges = new int[NUMSTATS];
 	private boolean enemyTargetted;
 	private int effectTurns;
-	
+
 	public Move (String name, int power, double accuracy, 
 			int[] statChanges, boolean enemyTargetted, int effectTurns) {
 		this.setName(name);
@@ -25,14 +25,14 @@ public class Move {
 	public void setName(String newName) {
 		name = newName;
 	}
-	
+
 	public int getPower() {
 		return power; 
 	}
 	public void setPower(int newPower) {
 		power = newPower;
 	}
-	
+
 	public double getAccuracy() {
 		return accuracy;
 	}
@@ -41,27 +41,29 @@ public class Move {
 			accuracy = newAccuracy;
 		}
 	}
-	
+
 	public boolean getEnemyTargetted() {
 		return enemyTargetted;
 	}
 	public void setEnemyTargetted(boolean isEnemyTargetted) {
 		enemyTargetted = isEnemyTargetted;
 	}
-	
+
 	public int[] getStatChanges() {
 		return Arrays.copyOfRange(statChanges,0,NUMSTATS);
 	}
 	public int getStatChange(int i) {
-			return statChanges[i];	
+		return statChanges[i];	
 	}
 	public void setStatChanges(int[] newStatChanges) {
 		System.arraycopy(newStatChanges, 0, statChanges, 0, NUMSTATS);
 	}
-	public void setStatChange(int change, int i) {
-		statChanges[i] = change;
+	public void setStatChange(int i, int change) {
+		if(i<NUMSTATS){
+			statChanges[i] = change;
+		}
 	}
-	
+
 	public void setEffectTurns(int newEffectTurns){
 		if(newEffectTurns >= 0){
 			effectTurns = newEffectTurns;
@@ -70,5 +72,5 @@ public class Move {
 	public int getEffectTurns(){
 		return effectTurns;
 	}
-	
+
 }

@@ -117,7 +117,7 @@ public class Character {
 		atk += moveStatChanges[0];
 		def += moveStatChanges[1];
 		speed += moveStatChanges[2];
-		currentHp += moveStatChanges[3]; 
+		maxHp += moveStatChanges[3]; 
 	}
 
 	//Use item not in inventory
@@ -143,8 +143,7 @@ public class Character {
 				items.remove(i);
 			}
 			else{
-				Item temp = items.get(i);
-				
+				Item temp = items.get(i);	
 			}
 		}
 	}

@@ -1,22 +1,25 @@
 import java.util.Arrays;
 
 public class Items {
-	private final int stat = 4;
-	private final int capacity = 100;
-	private int num;
+	private final int NUMSTATS = 4;
 	private boolean consumable;
 	private String itemName;
-	private String[] itemList = new String[100];
-	private int[] statChange = new int[stat];
+	private int[] statChange = new int[NUMSTATS];
+	private int effectTurns;
+	private int equipmentType;
 	
-	
-	public Items(boolean consumable, String[] itemList, int[] statChange, String itemName) {
+	public Items(boolean consumable, int[] statChange, String itemName, int effectTurnsOrType) {
 		setConsumable(consumable);
 		setItemName(itemName);
-		setItemList(itemList,itemName);
 		setStatChange(statChange, num, num);
-		
-		
+		if(consumable){
+			effectTurns = effectTurnsOrType;
+			equipmentType = -1;
+		}
+		else{
+			effectTurns = -1;
+			equipmentType = effectTurnsOrType;
+		}
 	}
 	
 	public Items(Items aCopy) {
@@ -30,40 +33,41 @@ public class Items {
 	public void setConsumable(boolean ifConsumable) {
 		consumable = ifConsumable;
 	}
-	
 	public void setItemName(String aName) {
 		itemName = aName;	
+	}	
+	public void setEffectTurns(int change){
+		if(consumable){
+			effectTurns = change;
+		}
 	}
-	
-//I want to make it loop through the item list and select items so this is just a draft
-	public void setItemList(String[] aList, String item) {
-			System.arraycopy(aList, 0, aList, 0, capacity);
+	public void setEquipmentType(int change){
+		if(!consumable){
+			equipmentType = change;
+		}
 	}
-	
-	public void setStatChange(int [] newStat, int i, int change) {
-		if (Arrays.asList(newStat).contains(i)) {
+	public void setStatChange(int i, int change) {
+		if (i<NUMSTATS) {
 			newStat[i] = change;
 		}
-		System.arraycopy(newStat, 0, statChange, 0, stat);
-
+	}
+	public void setStatChanges(int[] newStatChange) {
+		System.arraycopy(newStatChange, 0, statChange, 0, NUMSTATS);
 	}
 //getter
 	public boolean getConsumable() {
 		return consumable;
 	}
-	
 	public String getItemName() {
 		return itemName;
-	
 	}
-		
-		
-	public String[] getItemList() {
-		return itemList;
-	
+	public int getEffectDuration(){
+		return effectDuration;
 	}
-	
+	public int getEquipmentType(){
+		return equipmentType;
+	}
 	public int[] getStatChange() {
-		return statChange;
+		return Arrays.copyOfRange(statChange,0,NUMSTATS);;
 	}
 }

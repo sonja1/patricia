@@ -2,23 +2,26 @@ import java.util.Arrays;
 
 public class Items {
 	private final int NUMSTATS = 4;
+	private int power;
 	private boolean consumable;
 	private String itemName;
 	private int[] statChange = new int[NUMSTATS];
 	private int effectTurns;
 	private int equipmentType;
 	
-	public Items(boolean consumable, int[] statChange, String itemName, int effectTurnsOrType) {
+	public Items(boolean consumable, int[] statChange, String itemName, int effectTurnsOrType, int power) {
 		setConsumable(consumable);
 		setItemName(itemName);
 		setStatChange(statChange, num, num);
 		if(consumable){
-			effectTurns = effectTurnsOrType;
-			equipmentType = -1;
+			setEffectTurns(effectTurnsOrType);
+			setEquipmentType(-1);
+			setPower(power);
 		}
 		else{
-			effectTurns = -1;
-			equipmentType = effectTurnsOrType;
+			setEffectTurns(-1);
+			setEquipmentType(effectTurnsOrType);
+			setPower(0);
 		}
 	}
 	
@@ -54,8 +57,11 @@ public class Items {
 	public void setStatChanges(int[] newStatChange) {
 		System.arraycopy(newStatChange, 0, statChange, 0, NUMSTATS);
 	}
+	public int setPower(int change){
+		power = change;
+	}
 //getter
-	public boolean getConsumable() {
+	public boolean isConsumable() {
 		return consumable;
 	}
 	public String getItemName() {
@@ -69,5 +75,8 @@ public class Items {
 	}
 	public int[] getStatChange() {
 		return Arrays.copyOfRange(statChange,0,NUMSTATS);;
+	}
+	public int getPower(){
+		return power;
 	}
 }

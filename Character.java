@@ -114,11 +114,12 @@ public class Character {
 		if (currentHp < 0) {
 			currentHp = 0;
 		}
-		int[] moveStatChanges = aMove.getStatChanges();
-		atk += moveStatChanges[0];
-		def += moveStatChanges[1];
-		speed += moveStatChanges[2];
-		maxHp += moveStatChanges[3]; 
+		int[] statChange = aMove.getStatChanges();
+		atk += statChange[0];
+		def += statChange[1];
+		speed += statChange[2];
+		maxHp += statChange[3]; 
+		this.addTempChange(aMove.getEffectDuration(), statChange);
 	}
 
 	//Use item not in inventory
@@ -134,8 +135,9 @@ public class Character {
 			else {
 				currentHp += anItem.getPower();
 			}
-			//if(anItem.isConsumable()){	
-			//}
+			if(anItem.isConsumable()){	
+				this.addTempChange(anItem.getEffectDuration(), statChange);
+			}
 	}
 	
 	public void useItem(int i){
@@ -160,6 +162,29 @@ public class Character {
 			maxHp -= statChange[3];
 			items.add(equipped[i]);
 			equipped[i] = null;
+		}
+	}
+	
+	public void addTempChange(int duration, int[]  statChange){
+		if(duration > 0){
+			int[] tempStatChange = new int[5];
+			for(int i = 0; i<statChange.length; i++){
+				tempStatChange[i] = statChange[i];
+			}
+			tempStatChange[tempStatChange.length-1] = duration;
+			tempStatChanges.add(tempStatChange);
+		}
+	}
+	public void statsNextTurn(){
+		for(int[] statChange: tempStatChanges){
+			statChange[statChange.length-1] -= 1;
+			if(statChanges[statChange.length-1] <= 0){
+				atk-= statChange[0];
+				def-= statChange[1];
+				speed-= statChange[2];
+				maxHp -= statChange[3];
+				tempStatChanges.remove(statChange);
+			}
 		}
 	}
 }

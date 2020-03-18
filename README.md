@@ -12,7 +12,7 @@
 3. Open command prompt, find the directory to the extracted folder "patricia-master" then run it with Java.
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------------
 
 #demo2 is named as mainMap.java.
 

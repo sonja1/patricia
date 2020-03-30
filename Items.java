@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class Items {
 	private final int NUMSTATS = 4;
+	private final int EQUIPSLOTS = 6;
 	private int power;
 	private boolean consumable;
 	private String itemName;
@@ -11,8 +12,8 @@ public class Items {
 	
 	public Items(boolean consumable, int[] statChange, String itemName, int effectTurnsOrType, int power) {
 		setConsumable(consumable);
-		setItemName(itemName);
-		setStatChange(statChange, num, num);
+		setName(itemName);
+		setStatChanges(statChange);
 		if(consumable){
 			setEffectTurns(effectTurnsOrType);
 			setEquipmentType(-1);
@@ -28,7 +29,6 @@ public class Items {
 	public Items(Items aCopy) {
 		consumable = aCopy.consumable;
 		itemName = aCopy.itemName;
-		itemList = aCopy.itemList;
 		statChange = aCopy.statChange;
 		
 	}
@@ -36,7 +36,7 @@ public class Items {
 	public void setConsumable(boolean ifConsumable) {
 		consumable = ifConsumable;
 	}
-	public void setItemName(String aName) {
+	public void setName(String aName) {
 		itemName = aName;	
 	}	
 	public void setEffectTurns(int change){
@@ -46,35 +46,40 @@ public class Items {
 	}
 	public void setEquipmentType(int change){
 		if(!consumable){
-			equipmentType = change;
+			if(change<EQUIPSLOTS && change>=0){
+				equipmentType = change;
+			}
+			else{
+				equipmentType =0;
+			}
 		}
 	}
 	public void setStatChange(int i, int change) {
 		if (i<NUMSTATS) {
-			newStat[i] = change;
+			statChange[i] = change;
 		}
 	}
 	public void setStatChanges(int[] newStatChange) {
 		System.arraycopy(newStatChange, 0, statChange, 0, NUMSTATS);
 	}
-	public int setPower(int change){
+	public void setPower(int change){
 		power = change;
 	}
 //getter
 	public boolean isConsumable() {
 		return consumable;
 	}
-	public String getItemName() {
+	public String getName() {
 		return itemName;
 	}
 	public int getEffectDuration(){
-		return effectDuration;
+		return effectTurns;
 	}
 	public int getEquipmentType(){
 		return equipmentType;
 	}
 	public int[] getStatChange() {
-		return Arrays.copyOfRange(statChange,0,NUMSTATS);;
+		return Arrays.copyOfRange(statChange,0,NUMSTATS);
 	}
 	public int getPower(){
 		return power;

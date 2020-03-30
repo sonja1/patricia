@@ -32,7 +32,7 @@ public class Enemy extends Character {
 	  this.setDef(enemyTotalStat/4);
 	  this.setSpeed(enemyTotalStat/4);
 	  this.setMaxHp(enemyTotalStat/4);
-	  this.setCurrentHp(enemyTotalStat/4)
+	  this.setCurrentHp(enemyTotalStat/4);
   }
   
 }

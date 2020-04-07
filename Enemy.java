@@ -4,7 +4,6 @@
  */
 
 public class Enemy extends Character {
-  //private char[][] appearance; 
   private Items droppable;
   private int tier;
   

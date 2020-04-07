@@ -12,11 +12,12 @@ public class Enemy extends Character {
    /**
     * Creates an enemy with given tier, name, and stats.
     */
-  public Enemy (int aTier, String aName, int anHp, int anAtk, int aDef, int aSpeed) {
+  public Enemy (int aTier, String aName, int anHp, int anAtk, int aDef, int aSpeed, Items aDroppable) {
 	  super(aName,anHp,anAtk,aDef,aSpeed);
 	  if (aTier == 1 || aTier == 0 || aTier == -1) {
 		  tier = aTier;
 	  }  
+	  this.addItem(aDroppable); 
   }
   
   

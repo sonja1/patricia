@@ -1,3 +1,8 @@
+/**
+ * Represents a playable character in the game.
+ * Has a level and xp (experience points).
+ */
+
 public class Player extends Character {
   private int xp = 0;
   private int level;
@@ -15,17 +20,28 @@ public class Player extends Character {
 	  }
   }
   //Getters
-  
+  /**
+   * Gets the player's level.
+   * @return the player's level.
+   */
   public int getLevel() {
 	  return this.level;
   }
   
+  /**
+   * Gets the player's xp points.
+   * @return the player's xp points.
+   */
   public int getXp() {
 	  return this.xp;
   }
   
   //Methods
-  
+  /**
+   * Levels up the player.
+   * Player recieves xp when levelling up.
+   * At certain levels, player has opportunity to learn a new move.
+   */
   public void levelUp(int addXp) {
 	  this.level++;
 	  this.xp += addXp;
@@ -38,6 +54,9 @@ public class Player extends Character {
 		  }
   }
   
+  /**
+   * Allows player to use their xp to increase their stats.
+   */
   public void allotStats(int addAtk, int addDef, int addSpeed, int addHp) {
 	  if (addAtk+addDef+addSpeed+addHp == xp)
 		  super.setAtk(super.getAtk()+addAtk);

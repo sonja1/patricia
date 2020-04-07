@@ -8,15 +8,17 @@ public class Move {
 	private int[] statChanges = new int[NUMSTATS];
 	private boolean enemyTargetted;
 	private int effectTurns;
+	private int willpower;
 
-	public Move (String name, int power, double accuracy, 
-			int[] statChanges, boolean enemyTargetted, int effectTurns) {
+	public Move (String name,int willpower, boolean enemyTargetted, int[] statChanges,
+			int effectTurns, int power, double accuracy) {
 		this.setName(name);
 		this.setPower(power);
 		this.setAccuracy(accuracy);
 		this.setEnemyTargetted(enemyTargetted);
 		this.setStatChanges(statChanges);
 		this.setEffectTurns(effectTurns);
+		this.setWillpower(willpower);
 	}
 	//getters and setters
 	public String getName() {
@@ -24,6 +26,12 @@ public class Move {
 	}
 	public void setName(String newName) {
 		name = newName;
+	}
+	public int getWillpower() {
+		return willpower;
+	}
+	public void setWillpower(int newWillpower) {
+		willpower = newWillpower;
 	}
 
 	public int getPower() {
@@ -39,6 +47,9 @@ public class Move {
 	public void setAccuracy(double newAccuracy) {
 		if(newAccuracy <= 1 && newAccuracy >= 0) {
 			accuracy = newAccuracy;
+		}
+		else{
+			accuracy=1.0;
 		}
 	}
 

@@ -9,11 +9,13 @@ public class Items {
 	private int[] statChange = new int[NUMSTATS];
 	private int effectTurns;
 	private int equipmentType;
+	private int willpower;
 	
-	public Items(boolean consumable, int[] statChange, String itemName, int effectTurnsOrType, int power) {
+	public Items(String itemName,int willpower, boolean consumable, int[] statChange,  int effectTurnsOrType, int power) {
 		setConsumable(consumable);
 		setName(itemName);
 		setStatChanges(statChange);
+		this.setWillpower(willpower);
 		if(consumable){
 			setEffectTurns(effectTurnsOrType);
 			setEquipmentType(-1);
@@ -65,6 +67,10 @@ public class Items {
 	public void setPower(int change){
 		power = change;
 	}
+	public void setWillpower(int change){
+		willpower = change;
+	}
+	
 //getter
 	public boolean isConsumable() {
 		return consumable;
@@ -83,5 +89,8 @@ public class Items {
 	}
 	public int getPower(){
 		return power;
+	}
+	public int getWillpower(){
+		return willpower;
 	}
 }

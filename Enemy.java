@@ -12,8 +12,8 @@ public class Enemy extends Character {
    /**
     * Creates an enemy with given tier, name, and stats.
     */
-  public Enemy (int aTier, String aName, int anHp, int anAtk, int aDef, int aSpeed) {
-	  super(aName,anHp,anAtk,aDef,aSpeed);
+  public Enemy (int aTier, String aName, int anHp, int anAtk, int aDef, int aSpd) {
+	  super(aName,anHp,anAtk,aDef,aSpd);
 	  if (aTier == 1 || aTier == 0 || aTier == -1) {
 		  tier = aTier;
 	  }  
@@ -46,7 +46,7 @@ public class Enemy extends Character {
 	  int enemyTotalStat = (1 + aTier/10)*playerTotalStat;
 	  this.setAtk(enemyTotalStat/4);
 	  this.setDef(enemyTotalStat/4);
-	  this.setSpeed(enemyTotalStat/4);
+	  this.setSpd(enemyTotalStat/4);
 	  this.setMaxHp(enemyTotalStat/4);
 	  this.setCurrentHp(enemyTotalStat/4);
   }

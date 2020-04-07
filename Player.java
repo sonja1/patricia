@@ -10,8 +10,8 @@ public class Player extends Character {
   
   //Constructor
   
-  public Player(int anXp, int aLevel, String aName, int anHp, int anAtk, int aDef, int aSpeed) {
-	  super(aName, anHp, anAtk, aDef, aSpeed);
+  public Player(int anXp, int aLevel, String aName, int anHp, int anAtk, int aDef, int aSpd) {
+	  super(aName, anHp, anAtk, aDef, aSpd);
 	  if (anXp >= 0) {
 		  this.xp = anXp;
 	  }
@@ -61,7 +61,7 @@ public class Player extends Character {
 	  if (addAtk+addDef+addSpeed+addHp == xp)
 		  super.setAtk(super.getAtk()+addAtk);
 	      super.setDef(super.getDef()+addDef);
-	      super.setSpeed(super.getSpeed()+addSpeed);
+	      super.setSpd(super.getSpeed()+addSpeed);
 	      super.setMaxHp(super.getMaxHp()+addHp);
 	      super.setCurrentHp(super.getCurrentHp() + addHp);
 	      xp = 0;

@@ -104,6 +104,7 @@ public class Character {
 	public int getDef() {
 		return def;
 	}
+<<<<<<< HEAD
 	
 	
     /**
@@ -111,13 +112,37 @@ public class Character {
      * @return this character's speed.
      */
 	public int getSpeed() {
+=======
+
+	public int getSpd() {
+>>>>>>> branch 'master' of https://github.com/sonja1/patricia.git
 		return spd;
 	}
 
 	public Move[] getMoves() {
 		return moves;
 	}
-
+	
+	public ArrayList<Items> getItems(){
+		return inventory;
+	}
+	public Items getItem(int itemIndex){
+		if(inventory.size()>itemIndex){
+			return inventory.get(itemIndex);
+		}
+		else{
+			return null;
+		}
+	}
+	
+	public Move getMove(int moveIndex){
+		if(knownMoves>moveIndex){
+			return moves[moveIndex];
+		}
+		else{
+			return null;
+		}
+	}
 	public int getKnownMoves(){
 		return knownMoves;
 	}
@@ -132,19 +157,43 @@ public class Character {
 	}
 
 	public void setMaxHp(int aMaxHp) {
-		maxHp = aMaxHp;
+		if(aMaxHp>1){
+			maxHp = aMaxHp;
+		}
+		else{
+			maxHp = 1;
+		}
+		if(currentHp>maxHp){
+			currentHp=maxHp;
+		}
 	}
 
 	public void setAtk(int anAtk) {
-		atk = anAtk;
+		if(anAtk>1){
+			atk = anAtk;
+		}
+		else{
+			atk = 1;
+		}
 	}
 
 	public void setDef(int aDef) {
-		def = aDef;
+		if(aDef>1){
+			def = aDef;
+		}
+		else{
+			def=1;
+		}
 	}
 
-	public void setSpeed(int aSpeed) {
-		spd = aSpeed;
+	public void setSpd(int aSpd) {
+		if(aSpd>1){
+			spd = aSpd;
+		}
+		else{
+			spd = 1;
+		}
+		
 	}
 
 	public void addItem(Items anItem){
@@ -165,6 +214,11 @@ public class Character {
 	//Methods
 
 	public void useMove(Move aMove, Character user) {
+		int[] statChange = aMove.getStatChanges();
+		setAtk(atk+statChange[0]);
+		setDef(def+statChange[1]);
+		setSpd(spd+statChange[2]);
+		setMaxHp(maxHp+statChange[3]); 
 		if(aMove.getPower()>=0){
 			currentHp = currentHp - (aMove.getPower()*user.getAtk())/(def);
 		}
@@ -174,11 +228,6 @@ public class Character {
 		if (currentHp < 0) {
 			currentHp = 0;
 		}
-		int[] statChange = aMove.getStatChanges();
-		atk += statChange[0];
-		def += statChange[1];
-		spd += statChange[2];
-		maxHp += statChange[3]; 
 		this.addTempChange(aMove.getEffectTurns(), statChange);
 	}
 
@@ -251,7 +300,6 @@ public class Character {
 			}
 		}
 	}
-
 	public String toString(){
 		String stringMoves = "[";
 		for(int i = 0; i<moves.length; i++){

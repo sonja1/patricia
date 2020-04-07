@@ -1,5 +1,11 @@
 import java.util.ArrayList;
 
+/**
+ * @author
+ * Represents a character in the RPG game.
+ * A character has their own stats, battle abilities, and can use/store items
+ */
+
 public class Character {
 	private final int EQUIPSLOTS = 6;
 	private final int NUMMOVES = 4;
@@ -18,7 +24,10 @@ public class Character {
 
 
 	//Constructors
-
+	
+	/**
+	 * Creates a new character with the given name and stats, which must be positive values.
+	 */
 	public Character(String aName, int anHp, int anAtk, int aDef, int aSpeed) {
 		name = aName;
 		if (anHp > 0) {
@@ -37,7 +46,10 @@ public class Character {
 	}
 
 	//Copy constructor
-
+	
+	/**
+	 * Creates a new character that replicates the information of an existing character.
+	 */
 	public Character (Character aCharacter) {
 		this.name = aCharacter.name;
 		this.atk = aCharacter.atk;
@@ -50,26 +62,54 @@ public class Character {
 	}
 
 	// Getters
-
+	
+	/**
+	 * Gets the name of the character.
+	 * @return this character's name.
+	 */
 	public String getName() {
 		return name;
 	}
+	
+	/**
+	 * Gets the current HP of the character.
+	 * @return this character's current HP.
+	 */
 	public int getCurrentHp() {
 		return currentHp;
 	}
-
+	
+	/**
+	 * Gets the maximum HP of the character.
+	 * @return this character's maximum HP.
+	 */
 	public int getMaxHp() {
 		return maxHp;
 	}
+	
+	/**
+	 * Gets the attack stat of the character.
+	 * @return this character's attack stat.
+	 */
 
 	public int getAtk() {
 		return atk;
 	}
+	
+	/**
+	 * Gets the defense stat of the character.
+	 * @return this character's defense stat.
+	 */
 
 	public int getDef() {
 		return def;
 	}
-
+	
+	
+    /**
+     * Gets the speed of the character.
+     * @return this character's speed.
+     */
 	public int getSpeed() {
 		return spd;
 	}

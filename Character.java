@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 /**
- * @author
  * Represents a character in the RPG game.
  * A character has their own stats, battle abilities, and can use/store items
  */
@@ -27,12 +26,18 @@ public class Character {
 	
 	/**
 	 * Creates a new character with the given name and stats, which must be positive values.
+	 * @param aName: a name for the character; anHp, anAtk, aDef, aSpeed: an hp stat, an attack stat, a defense stat, and a speed stat for the character, respectively.
+	 * All of these must be positive integers.
 	 */
 	public Character(String aName, int anHp, int anAtk, int aDef, int aSpeed) {
 		name = aName;
-		if (anHp > 0) {
+		if (anHp > 1) {
 			maxHp = anHp;
 			currentHp = anHp;
+		}
+		else {
+			maxHp = 1;
+			currentHp = 1;
 		}
 		if (anAtk > 0) {
 			atk = anAtk;
@@ -49,6 +54,7 @@ public class Character {
 	
 	/**
 	 * Creates a new character that replicates the information of an existing character.
+	 * @param aCharacter, a character whos information to copy
 	 */
 	public Character (Character aCharacter) {
 		this.name = aCharacter.name;
@@ -104,28 +110,36 @@ public class Character {
 	public int getDef() {
 		return def;
 	}
-<<<<<<< HEAD
-	
-	
+
     /**
      * Gets the speed of the character.
      * @return this character's speed.
      */
-	public int getSpeed() {
-=======
-
 	public int getSpd() {
->>>>>>> branch 'master' of https://github.com/sonja1/patricia.git
 		return spd;
 	}
-
+	
+	/**
+	 * Gets the moves of the character.
+	 * @return this character's array of moves.
+	 */
 	public Move[] getMoves() {
 		return moves;
 	}
 	
+	/**
+	 * Gets the item inventory of the character.
+	 * @return this character's array of items.
+	 */
 	public ArrayList<Items> getItems(){
 		return inventory;
 	}
+	
+	/**
+	 * Gets a particular item from the character's inventory.
+	 * @param itemIndex, the index of the item in the array.
+	 * @return one of the items in the inventory.
+	 */
 	public Items getItem(int itemIndex){
 		if(inventory.size()>itemIndex){
 			return inventory.get(itemIndex);
@@ -135,6 +149,11 @@ public class Character {
 		}
 	}
 	
+	/**
+	 * Get a particular move the character knows.
+	 * @param moveIndex, the index of the move in the move array
+	 * @return one of the moves in the character's move array.
+	 */
 	public Move getMove(int moveIndex){
 		if(knownMoves>moveIndex){
 			return moves[moveIndex];
@@ -143,19 +162,40 @@ public class Character {
 			return null;
 		}
 	}
+	
+	/**
+	 * Gets the number of moves the character knows.
+	 * @return this number.
+	 */
 	public int getKnownMoves(){
 		return knownMoves;
 	}
 
 	//Setters
-
+	
+	
+	/**
+	 * Setting the name for the character.
+	 * @param aName, a name for the character.
+	 */
 	public void setName(String aName) {
 		name = aName;
 	}
+	
+	/**
+	 * Setting the current HP of the character
+	 * @param a positive integer aCurrentHp representing the the character's current health.
+	 */
 	public void setCurrentHp(int aCurrentHp) {
-		currentHp = aCurrentHp;
+		if (aCurrentHp > 0 ) {
+			currentHp = aCurrentHp;
+		}
 	}
-
+	
+	/**
+	 * Setting the maximum HP of the character, making sure its not less than the current HP.
+	 * @param aMaxHp, an integer that must be greater than 1.
+	 */
 	public void setMaxHp(int aMaxHp) {
 		if(aMaxHp>1){
 			maxHp = aMaxHp;
@@ -167,7 +207,11 @@ public class Character {
 			currentHp=maxHp;
 		}
 	}
-
+	
+	/**
+	 * Setting the attack stat of the character.
+	 * @param anAtk, a positive integer that will represent the character's attack.
+	 */
 	public void setAtk(int anAtk) {
 		if(anAtk>1){
 			atk = anAtk;
@@ -176,7 +220,11 @@ public class Character {
 			atk = 1;
 		}
 	}
-
+	
+	/**
+	 * Setting the defense of the character.
+	 * @param aDef, a positive integer that will represent the character's defense.
+	 */
 	public void setDef(int aDef) {
 		if(aDef>1){
 			def = aDef;
@@ -185,7 +233,11 @@ public class Character {
 			def=1;
 		}
 	}
-
+	
+	/**
+	 * Setting the speed of the character.
+	 * @param aSpd, a positive integer that will represent the character's speed.
+	 */
 	public void setSpd(int aSpd) {
 		if(aSpd>1){
 			spd = aSpd;
@@ -195,16 +247,31 @@ public class Character {
 		}
 		
 	}
+	
+	/**
+	 * Adding an item to the character's inventory.
+	 * @param anItem, the item that will be added to the inventory.
+	 */
 
 	public void addItem(Items anItem){
 		inventory.add(anItem);
 	}
+	
+	/**
+	 * Adding a move to the character's move array, i.e learning a move.
+	 * @param the move to be learned.
+	 */
 	public void addMove(Move aMove){
 		if(knownMoves<moves.length){
 			moves[knownMoves] = aMove;
 			knownMoves++;
 		}
 	}
+	
+	/**
+	 * Replacing a move in the move array if character wants to learn new one but has full array.
+	 * @param i, the index of the move to be replaced, and aMove, the new move.
+	 */
 	public void replaceMove(int i, Move aMove){
 		if(i<NUMMOVES){
 			moves[i] = aMove;

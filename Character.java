@@ -279,7 +279,12 @@ public class Character {
 	}
 
 	//Methods
-
+	
+	/**
+	 * Character is attacked by another character.
+	 * @param aMove, the move that is being used on the character. 
+	 * user, the character performing the move on this character.
+	 */
 	public void useMove(Move aMove, Character user) {
 		int[] statChange = aMove.getStatChanges();
 		setAtk(atk+statChange[0]);
@@ -299,6 +304,10 @@ public class Character {
 	}
 
 	//Use item not in inventory
+	/**
+	 * Character can use an item not in their inventory to affect their stats.
+	 * @param anItem, the item that the character will be used.
+	 */
 	public void useItem(Items anItem) {
 		int[] statChange = anItem.getStatChange();
 		atk += statChange[0];
@@ -315,7 +324,11 @@ public class Character {
 			this.addTempChange(anItem.getEffectDuration(), statChange);
 		}
 	}
-
+	
+	/**
+	 * Character can use item from their inventory.
+	 * @param i, the index of the item to be used in the inventory array.
+	 */
 	public void useItem(int i){
 		if(i < inventory.size()){
 			this.useItem(inventory.get(i));
@@ -329,6 +342,10 @@ public class Character {
 			}
 		}
 	}
+	/**
+	 * Unequip an equipped item.
+	 * @param i, the index of the equipped item in the array of equipped items.
+	 */
 	public void unequip(int i){
 		if(i<EQUIPSLOTS && equipped[i]!=null){
 			int[] statChange = equipped[i].getStatChange();
@@ -340,7 +357,12 @@ public class Character {
 			equipped[i] = null;
 		}
 	}
-
+	
+	/**
+	 * Temporary change to character's stats
+	 * @param duration, the amount of time the change will be in effect.
+	 * statChange, an integer array where each number corresponds to the effect it will have on its stat which is determined by the index.
+	 */
 	public void addTempChange(int duration, int[] statChange){
 		if(duration > 0){
 			int[] tempStatChange = new int[5];
@@ -351,6 +373,9 @@ public class Character {
 			tempStatChanges.add(tempStatChange);
 		}
 	}
+	/**
+	 * 
+	 */
 	public void statsNextTurn(){
 		for(int i = 0; i<tempStatChanges.size(); i++){
 			int[] statChange = tempStatChanges.get(i);
@@ -367,6 +392,9 @@ public class Character {
 			}
 		}
 	}
+	/**
+	 * toString method, converts information about the character in the form of strings so it can be displayed nicely.
+	 */
 	public String toString(){
 		String stringMoves = "[";
 		for(int i = 0; i<moves.length; i++){

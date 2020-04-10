@@ -20,8 +20,7 @@ public class Character {
 	private ArrayList<Items> inventory = new ArrayList<Items>();
 	private Items[] equipped = new Items[EQUIPSLOTS];
 	private ArrayList<int[]> tempStatChanges = new ArrayList<int[]>();
-
-
+	
 	//Constructors
 	
 	/**
@@ -32,21 +31,21 @@ public class Character {
 	public Character(String aName, int anHp, int anAtk, int aDef, int aSpeed) {
 		name = aName;
 		if (anHp > 1) {
-			maxHp = anHp;
-			currentHp = anHp;
+			this.maxHp = anHp;
+			this.currentHp = anHp;
 		}
 		else {
-			maxHp = 1;
-			currentHp = 1;
+			this.maxHp = 1;
+			this.currentHp = 1;
 		}
 		if (anAtk > 0) {
-			atk = anAtk;
+			this.atk = anAtk;
 		}
 		if (aDef > 0) {
-			def = aDef;
+			this.def = aDef;
 		}
 		if (aSpeed > 0) {
-			spd = aSpeed;
+			this.spd = aSpeed;
 		}
 	}
 
@@ -74,7 +73,7 @@ public class Character {
 	 * @return this character's name.
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	
 	/**
@@ -82,7 +81,7 @@ public class Character {
 	 * @return this character's current HP.
 	 */
 	public int getCurrentHp() {
-		return currentHp;
+		return this.currentHp;
 	}
 	
 	/**
@@ -90,7 +89,7 @@ public class Character {
 	 * @return this character's maximum HP.
 	 */
 	public int getMaxHp() {
-		return maxHp;
+		return this.maxHp;
 	}
 	
 	/**
@@ -99,7 +98,7 @@ public class Character {
 	 */
 
 	public int getAtk() {
-		return atk;
+		return this.atk;
 	}
 	
 	/**
@@ -108,7 +107,7 @@ public class Character {
 	 */
 
 	public int getDef() {
-		return def;
+		return this.def;
 	}
 
     /**
@@ -116,7 +115,7 @@ public class Character {
      * @return this character's speed.
      */
 	public int getSpd() {
-		return spd;
+		return this.spd;
 	}
 	
 	/**
@@ -124,7 +123,7 @@ public class Character {
 	 * @return this character's array of moves.
 	 */
 	public Move[] getMoves() {
-		return moves;
+		return this.moves;
 	}
 	
 	/**
@@ -132,7 +131,7 @@ public class Character {
 	 * @return this character's array of items.
 	 */
 	public ArrayList<Items> getItems(){
-		return inventory;
+		return this.inventory;
 	}
 	
 	/**
@@ -168,7 +167,7 @@ public class Character {
 	 * @return this number.
 	 */
 	public int getKnownMoves(){
-		return knownMoves;
+		return this.knownMoves;
 	}
 
 	//Setters
@@ -179,7 +178,7 @@ public class Character {
 	 * @param aName, a name for the character.
 	 */
 	public void setName(String aName) {
-		name = aName;
+		this.name = aName;
 	}
 	
 	/**
@@ -287,10 +286,18 @@ public class Character {
 	 */
 	public void useMove(Move aMove, Character user) {
 		int[] statChange = aMove.getStatChanges();
-		setAtk(atk+statChange[0]);
-		setDef(def+statChange[1]);
-		setSpd(spd+statChange[2]);
-		setMaxHp(maxHp+statChange[3]); 
+		if (aMove.getEnemyTargetted() == true) {
+			this.setAtk(this.getAtk()+statChange[0]);
+			this.setDef(this.getDef()+statChange[1]);
+			this.setSpd(this.getSpd()+statChange[2]);
+			this.setMaxHp(this.getMaxHp()+statChange[3]); 
+		}
+		else {
+			user.setAtk(user.getAtk()+statChange[0]);
+			user.setDef(user.getDef()+statChange[1]);
+			user.setSpd(user.getSpd()+statChange[2]);
+			user.setMaxHp(user.getMaxHp()+statChange[3]);
+		}
 		if(aMove.getPower()>=0){
 			currentHp = currentHp - (aMove.getPower()*user.getAtk())/(def);
 		}

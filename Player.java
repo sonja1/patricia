@@ -8,6 +8,32 @@ public class Player extends Character {
   private int level;
   private Move[][] possibleMoves = new Move[][];
   
+   //Creating the possibleMoves array
+  Move punch = new Move("Punch", 70, true, {0,0,-2,0}, 3, 50, 0.9);
+  possibleMoves[3].add(punch);
+  Move kick = new Move("Kick", 80, true, {0,-2,0,0}, 5, 60, 0.8);
+  possibleMoves[3].add(kick);
+  Move slap = new Move("Slap", 50, true, {0,-1,0,0}, 1, 40, 1.0);
+  possibleMoves[3].add(slap);
+  Move dance = new Move("Dance", 10, true, {0,-5,-3,0}, 5, 0, 1.0);
+  possibleMoves[3].add(dance);
+  Move treatYoSelf = new Move("Treat yoself", 70, false, {2,2,2,10}, 5, 0, 1.0);
+  possibleMoves[6].add(treatYoSelf);
+  Move fireball = new Move("Fireball", 100, true, {0,-5,0,0}, 2, 70, 1.0);
+  possibleMoves[6].add(fireball);
+  Move snowball = new Move("Snowball", 100, true, {0,0,-3,0}, 2, 70, 0.95);
+  possibleMoves[6].add(snowball);
+  Move thunder = new Move("Thunder", 100, true, {0,0,0,0}, 0, 80, 0.95);
+  possibleMoves[6].add(thunder);
+  Move heal = new Move("Heal", 10, false, {5,5,5,10}, 5, 0, 1.0);
+  possibleMoves[9].add(heal);
+  Move meteorJam = new Move("Meteor Jam", 130, true, {-2,-2,2,-5}, 1, 110, 0.9);
+  possibleMoves[9].add(meteorJam);
+  Move arson = new Move("Arson", 130, true, {0,-4,0,0}, 3, 100, 1.0);
+  possibleMoves[9].add(arson);
+  Move algebra2 = new Move("Algebra II", 130, true, {-2,-3,0,0}, 2, 120, 0.7);
+  possibleMoves[9].add(algebra2);
+  
   //Constructor
   
   public Player(int anXp, int aLevel, String aName, int anHp, int anAtk, int aDef, int aSpd) {

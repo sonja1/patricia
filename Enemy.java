@@ -7,22 +7,26 @@ public class Enemy extends Character {
   private Items droppable;
   private int tier;
   
-  //Constructor
+  //Constructors
    /**
     * Creates an enemy with given tier, name, and stats.
     */
-<<<<<<< HEAD
-  public Enemy (int aTier, String aName, int anHp, int anAtk, int aDef, int aSpeed, Items aDroppable) {
-	  super(aName,anHp,anAtk,aDef,aSpeed);
-=======
-  public Enemy (int aTier, String aName, int anHp, int anAtk, int aDef, int aSpd) {
+
+ public Enemy (String aName, int anHp, int anAtk, int aDef, int aSpd, Items aDroppable,int aTier,) {
 	  super(aName,anHp,anAtk,aDef,aSpd);
->>>>>>> branch 'master' of https://github.com/sonja1/patricia.git
 	  if (aTier == 1 || aTier == 0 || aTier == -1) {
-		  tier = aTier;
+		  this.tier = aTier;
 	  }  
-	  this.addItem(aDroppable); 
+	  this.droppable = aDroppable; 
   }
+  /**
+   * Copy constructor, copies another enemy.
+   */
+ public Enemy (Enemy anEnemy) {
+	 super(anEnemy);
+	 this.tier = anEnemy.tier;
+	 this.droppable = anEnemy.droppable;
+ }
   
   
   //Getters

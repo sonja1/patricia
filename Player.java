@@ -25,9 +25,9 @@ public class Player extends Character {
   possibleMoves[6].add(snowball);
   Move thunder = new Move("Thunder", 100, true, {0,0,0,0}, 0, 80, 0.95);
   possibleMoves[6].add(thunder);
-  Move heal = new Move("Heal", 10, false, {5,5,5,10}, 5, 0, 1.0);
+  Move heal = new Move("Heal", 10, false, {5,5,5,30}, 5, 0, 1.0);
   possibleMoves[9].add(heal);
-  Move meteorJam = new Move("Meteor Jam", 130, true, {-2,-2,2,-5}, 1, 110, 0.9);
+  Move meteorJam = new Move("Meteor Jam", 130, true, {-2,-2,2,0}, 1, 110, 0.9);
   possibleMoves[9].add(meteorJam);
   Move arson = new Move("Arson", 130, true, {0,-4,0,0}, 3, 100, 1.0);
   possibleMoves[9].add(arson);

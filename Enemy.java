@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Represents an enemy in the game.
  * Child of character class, also has a tier and a droppable item.
@@ -6,6 +8,20 @@
 public class Enemy extends Character {
   private Items droppable;
   private int tier;
+  private ArrayList<Items> droppableItems = new ArrayList<Items>;
+  
+  Items potion = new Items("Potion", 10,true, {0,0,0,20},1,0);
+  droppableItems.add(potion);
+  Items superPotion = new Items("Super potion",10,true, {0,0,0,60},1,0);
+  droppableItems.add(superPotion);
+  Items sword = new Items("Sword",10,true, {5,0,-2,0},3,0);
+  droppableItems.add(sword);
+  Items shield = new Items("Shield",10,true, {0,5,-2,0},3,0);
+  droppableItems.add(shield);
+  Items attackBoost = new Items("Attack booster",10,true, {3,0,0,0},1,0);
+  droppableItems.add(attackBoost);
+  Items speed = new Items("Speed",10,true, {0,0,5,0},1,0);
+  droppableItems.add(speed);
   
   //Constructors
    /**

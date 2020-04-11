@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Enemy extends Character {
   private Items droppable;
   private int tier;
-  private ArrayList<Items> droppableItems = new ArrayList<Items>;
+  private ArrayList<Items> droppableItems = new ArrayList<Items>();
   
   Items potion = new Items("Potion", 10,true, {0,0,0,20},1,0);
   droppableItems.add(potion);
@@ -74,6 +74,19 @@ public class Enemy extends Character {
 	  this.setSpd(enemyTotalStat/4);
 	  this.setMaxHp(enemyTotalStat/4);
 	  this.setCurrentHp(enemyTotalStat/4);
+  }
+  
+  public void chooseMove(int aWillpower) {
+	  ArrayList<int> list = new ArrayList<int>();
+	  for (int i = 0; i < (super.getItems()).size() + 5; i++) {
+		  list.add(i);
+	  }
+	  for (int i = 3; i > super.getKnownMoves(); i --) {
+		  list.remove(i);
+	  }
+	  for (number: list) {
+		  
+	  }
   }
   
 }

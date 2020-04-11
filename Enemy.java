@@ -101,7 +101,7 @@ public class Enemy extends Character {
 		  }
 	  }
 	  Random random = new Random();
-	  return list.get(random.nextInt(list.size()));
+	  return list.get(random.nextInt(list.size())); //
   }
   
 }

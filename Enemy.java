@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Represents an enemy in the game.
@@ -76,17 +77,28 @@ public class Enemy extends Character {
 	  this.setCurrentHp(enemyTotalStat/4);
   }
   
-  public void chooseMove(int aWillpower) {
+  public int chooseMove(int aWillpower) {
 	  ArrayList<int> list = new ArrayList<int>();
 	  for (int i = 0; i < (super.getItems()).size() + 5; i++) {
 		  list.add(i);
 	  }
-	  for (int i = 3; i > super.getKnownMoves(); i --) {
+	  for (int i = 3; i > super.getKnownMoves()-1; i--) {
 		  list.remove(i);
 	  }
-	  for (number: list) {
-		  
+	  for (number : list) {
+		  if (number <= super.getKnownMoves() -1 ) {
+			  if ((super.getMove(number)).getWillpower() < aWillpower) {
+				  list.remove(number);
+			  }
+		  }
+		  else {
+			  if ((super.getItem(number - 4)).getWillpower() < aWillpower) {
+				  list.remove(number);
+			  }
+		  }
 	  }
+	  Random random = new Random();
+	  return list.get(random.nextInt(list.size()));
   }
   
 }

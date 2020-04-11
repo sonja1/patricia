@@ -29,15 +29,13 @@ public class Enemy extends Character {
     * Creates an enemy with given tier, name, and stats.
     */
 
- public Enemy (String aName, int anHp, int anAtk, int aDef, int aSpd, Items aDroppable,int aTier,) {
-	  super(aName,anHp,anAtk,aDef,aSpd);
-	  if (aTier == 1 || aTier == 0 || aTier == -1) {
-		  this.tier = aTier;
-	  }
-	  else {
-		  this.tier = 0;
-	  }
-	  this.droppable = aDroppable; 
+ public Enemy (int aTier, Player aPlayer) {
+	 this.setAtk((1+aTier/10)*aPlayer.getAtk());
+	 this.setDef((1+aTier/10)*aPlayer.getDef());
+	 this.setSpd((1+aTier/10)*aPlayer.getSpd());
+	 this.setMaxHp((1+aTier/10)*aPlayer.getMaxHp());
+	 this.setCurrentHp((1+aTier/10)*aPlayer.getMaxHp());
+	 
   }
   /**
    * Copy constructor, copies another enemy.
@@ -67,41 +65,28 @@ public class Enemy extends Character {
 		  tier = aTier;
 	  }
   }
+
    /**
-    * Setting the enemy's stats relative to the player and the tier.
+    * Enemy randomly chooses move based on willpower.
+    * @param aWillpower, an integer. Enemy cannot use moves that require more willpower than the input.
     */
-  public void setStats(Player aPlayer, int aTier) {
-	  int playerTotalStat = aPlayer.getAtk() + aPlayer.getDef() + aPlayer.getSpeed() + aPlayer.getMaxHp();
-	  int enemyTotalStat = (1 + aTier/10)*playerTotalStat;
-	  this.setAtk(enemyTotalStat/4);
-	  this.setDef(enemyTotalStat/4);
-	  this.setSpd(enemyTotalStat/4);
-	  this.setMaxHp(enemyTotalStat/4);
-	  this.setCurrentHp(enemyTotalStat/4);
-  }
-  
   public int chooseMove(int aWillpower) {
 	  ArrayList<int> list = new ArrayList<int>();
-	  for (int i = 0; i < (super.getItems()).size() + 5; i++) {
+	  for (int i = 0; i < super.getKnownMoves(); i++) {
 		  list.add(i);
 	  }
-	  for (int i = 3; i > super.getKnownMoves()-1; i--) {
-		  list.remove(i);
-	  }
 	  for (number : list) {
-		  if (number <= super.getKnownMoves() -1 ) {
-			  if ((super.getMove(number)).getWillpower() < aWillpower) {
-				  list.remove(number);
-			  }
-		  }
-		  else {
-			  if ((super.getItem(number - 4)).getWillpower() < aWillpower) {
-				  list.remove(number);
-			  }
+		  if ((super.getMove(number)).getWillpower() > aWillpower) {
+			  list.remove(number);
 		  }
 	  }
-	  Random random = new Random();
-	  return list.get(random.nextInt(list.size())); //
+	  if (list.size() == 0) {
+		  return -1;
+	  }
+	  else {
+		  Random random = new Random();
+		  return list.get(random.nextInt(list.size())); // 
+	  }
   }
   
 }

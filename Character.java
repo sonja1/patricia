@@ -189,6 +189,9 @@ public class Character {
 		if (aCurrentHp > 0 ) {
 			currentHp = aCurrentHp;
 		}
+		else{
+			currentHp=0;
+		}
 	}
 	
 	/**
@@ -280,31 +283,39 @@ public class Character {
 	//Methods
 	
 	/**
-	 * Character is attacked by another character.
+	 * A move is used on this character.
 	 * @param aMove, the move that is being used on the character. 
 	 * user, the character performing the move on this character.
 	 */
 	public void useMove(Move aMove, Character user) {
 		int[] statChange = aMove.getStatChanges();
+<<<<<<< HEAD
 		this.setAtk(this.getAtk()+statChange[0]);
 		this.setDef(this.getDef()+statChange[1]);
 		this.setSpd(this.getSpd()+statChange[2]);
 		this.setMaxHp(this.getMaxHp()+statChange[3]); 
+=======
+			this.setAtk(this.getAtk()+statChange[0]);
+			this.setDef(this.getDef()+statChange[1]);
+			this.setSpd(this.getSpd()+statChange[2]);
+			this.setMaxHp(this.getMaxHp()+statChange[3]); 
+>>>>>>> branch 'master' of https://github.com/sonja1/patricia.git
 		if(aMove.getPower()>=0){
+<<<<<<< HEAD
 			currentHp = currentHp + (aMove.getPower()*user.getAtk())/(def);
+=======
+			setCurrentHp(currentHp - (aMove.getPower()*user.getAtk())/(this.def);)
+>>>>>>> branch 'master' of https://github.com/sonja1/patricia.git
 		}
 		else{
-			currentHp = currentHp - (aMove.getPower()*user.getAtk());
-		}
-		if (currentHp < 0) {
-			currentHp = 0;
+			setCurrentHp(currentHp - (aMove.getPower()*user.getAtk()));
 		}
 		this.addTempChange(aMove.getEffectTurns(), statChange);
 	}
 
 	//Use item not in inventory
 	/**
-	 * Character can use an item not in their inventory to affect their stats.
+	 * Applies the effects of an item onto the character.
 	 * @param anItem, the item that the character will be used.
 	 */
 	public void useItem(Items anItem) {
@@ -362,7 +373,7 @@ public class Character {
 	 * @param duration, the amount of time the change will be in effect.
 	 * statChange, an integer array where each number corresponds to the effect it will have on its stat which is determined by the index.
 	 */
-	public void addTempChange(int duration, int[] statChange){
+	private void addTempChange(int duration, int[] statChange){
 		if(duration > 0){
 			int[] tempStatChange = new int[5];
 			for(int i = 0; i<statChange.length; i++){
@@ -372,8 +383,7 @@ public class Character {
 			tempStatChanges.add(tempStatChange);
 		}
 	}
-	/**
-	 * 
+	/**Changes the stats of this character to what they should be the following turn
 	 */
 	public void statsNextTurn(){
 		for(int i = 0; i<tempStatChanges.size(); i++){

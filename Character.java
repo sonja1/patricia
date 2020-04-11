@@ -13,8 +13,8 @@ public class Character {
 	private int atk; // index 0
 	private int def; // index 1
 	private int spd; // index 2
-	private int currentHp; // index 3
-	private int maxHp; 
+	private int maxHp; // index 3
+	private int currentHp; 
 	private Move[] moves = new Move[NUMMOVES];
 	private int knownMoves = 0;
 	private ArrayList<Items> inventory = new ArrayList<Items>();

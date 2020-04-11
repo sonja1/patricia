@@ -186,11 +186,14 @@ public class Character {
 	 * @param a positive integer aCurrentHp representing the the character's current health.
 	 */
 	public void setCurrentHp(int aCurrentHp) {
-		if (aCurrentHp > 0 ) {
+		if(aCurrentHp > 0){
 			currentHp = aCurrentHp;
 		}
 		else{
 			currentHp=0;
+		}
+		if(currentHp>maxHp){
+			currentHp = maxHp;
 		}
 	}
 	
@@ -199,15 +202,12 @@ public class Character {
 	 * @param aMaxHp, an integer that must be greater than 1.
 	 */
 	public void setMaxHp(int aMaxHp) {
-		if(aMaxHp>1){
-			maxHp = aMaxHp;
+		if(aMaxHp<1){
+			aMaxHP=1;
 		}
-		else{
-			maxHp = 1;
-		}
-		if(currentHp>maxHp){
-			currentHp=maxHp;
-		}
+		int change= aMaxHP-maxHp
+		maxHp = aMaxHp;
+		setCurrentHp(currentHp+change);
 	}
 	
 	/**
@@ -290,6 +290,7 @@ public class Character {
 	public void useMove(Move aMove, Character user) {
 		int[] statChange = aMove.getStatChanges();
 <<<<<<< HEAD
+<<<<<<< HEAD
 		this.setAtk(this.getAtk()+statChange[0]);
 		this.setDef(this.getDef()+statChange[1]);
 		this.setSpd(this.getSpd()+statChange[2]);
@@ -306,9 +307,17 @@ public class Character {
 =======
 			setCurrentHp(currentHp - (aMove.getPower()*user.getAtk())/(this.def);)
 >>>>>>> branch 'master' of https://github.com/sonja1/patricia.git
+=======
+		this.setAtk(this.getAtk()+statChange[0]);
+		this.setDef(this.getDef()+statChange[1]);
+		this.setSpd(this.getSpd()+statChange[2]);
+		this.setMaxHp(this.getMaxHp()+statChange[3]); 
+		if(aMove.getPower()<=0){
+			setCurrentHp(currentHp + (aMove.getPower()*user.getAtk())/(this.def));
+>>>>>>> branch 'master' of https://github.com/sonja1/patricia.git
 		}
 		else{
-			setCurrentHp(currentHp - (aMove.getPower()*user.getAtk()));
+			setCurrentHp(currentHp + (aMove.getPower()*user.getAtk()));
 		}
 		this.addTempChange(aMove.getEffectTurns(), statChange);
 	}
@@ -320,16 +329,11 @@ public class Character {
 	 */
 	public void useItem(Items anItem) {
 		int[] statChange = anItem.getStatChange();
-		atk += statChange[0];
-		def += statChange[1];
-		spd += statChange[2];
-		maxHp += statChange[3];
-		if (anItem.getPower() >= this.getMaxHp()-this.getCurrentHp()) {
-			currentHp = this.getMaxHp();
-		}
-		else {
-			currentHp += anItem.getPower();
-		}
+		this.setAtk(this.getAtk()+statChange[0]);
+		this.setDef(this.getDef()+statChange[1]);
+		this.setSpd(this.getSpd()+statChange[2]);
+		this.setMaxHp(this.getMaxHp()+statChange[3]);
+		this.setCurrentHp(anItem.getPower());
 		if(anItem.isConsumable()){	
 			this.addTempChange(anItem.getEffectDuration(), statChange);
 		}
@@ -359,10 +363,10 @@ public class Character {
 	public void unequip(int i){
 		if(i<EQUIPSLOTS && equipped[i]!=null){
 			int[] statChange = equipped[i].getStatChange();
-			atk-= statChange[0];
-			def-= statChange[1];
-			spd-= statChange[2];
-			maxHp -= statChange[3];
+			this.setAtk(this.getAtk()-statChange[0]);
+			this.setDef(this.getDef()-statChange[1]);
+			this.setSpd(this.getSpd()-statChange[2]);
+			this.setMaxHp(this.getMaxHp()-statChange[3]);
 			inventory.add(equipped[i]);
 			equipped[i] = null;
 		}
@@ -390,13 +394,10 @@ public class Character {
 			int[] statChange = tempStatChanges.get(i);
 			statChange[statChange.length-1] -= 1;
 			if(statChange[statChange.length-1] <= 0){
-				atk-= statChange[0];
-				def-= statChange[1];
-				spd-= statChange[2];
-				maxHp -= statChange[3];
-				if(currentHp>maxHp){
-					currentHp = maxHp;
-				}
+				this.setAtk(this.getAtk()-statChange[0]);
+				this.setDef(this.getDef()-statChange[1]);
+				this.setSpd(this.getSpd()-statChange[2]);
+				this.setMaxHp(this.getMaxHp()-statChange[3]);
 				tempStatChanges.remove(i);
 			}
 		}

@@ -286,20 +286,12 @@ public class Character {
 	 */
 	public void useMove(Move aMove, Character user) {
 		int[] statChange = aMove.getStatChanges();
-		if (aMove.getEnemyTargetted() == true) {
-			this.setAtk(this.getAtk()+statChange[0]);
-			this.setDef(this.getDef()+statChange[1]);
-			this.setSpd(this.getSpd()+statChange[2]);
-			this.setMaxHp(this.getMaxHp()+statChange[3]); 
-		}
-		else {
-			user.setAtk(user.getAtk()+statChange[0]);
-			user.setDef(user.getDef()+statChange[1]);
-			user.setSpd(user.getSpd()+statChange[2]);
-			user.setMaxHp(user.getMaxHp()+statChange[3]);
-		}
+		this.setAtk(this.getAtk()+statChange[0]);
+		this.setDef(this.getDef()+statChange[1]);
+		this.setSpd(this.getSpd()+statChange[2]);
+		this.setMaxHp(this.getMaxHp()+statChange[3]); 
 		if(aMove.getPower()>=0){
-			currentHp = currentHp - (aMove.getPower()*user.getAtk())/(def);
+			currentHp = currentHp + (aMove.getPower()*user.getAtk())/(def);
 		}
 		else{
 			currentHp = currentHp - (aMove.getPower()*user.getAtk());

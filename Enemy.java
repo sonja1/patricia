@@ -33,7 +33,10 @@ public class Enemy extends Character {
 	  super(aName,anHp,anAtk,aDef,aSpd);
 	  if (aTier == 1 || aTier == 0 || aTier == -1) {
 		  this.tier = aTier;
-	  }  
+	  }
+	  else {
+		  this.tier = 0;
+	  }
 	  this.droppable = aDroppable; 
   }
   /**

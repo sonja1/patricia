@@ -264,7 +264,18 @@ public class Character {
 	 * @param the move to be learned.
 	 */
 	public void addMove(Move aMove){
-		if(knownMoves<moves.length){
+		boolean possible = true;
+		if(knownMoves == moves.length()){
+			possible = false;
+		}
+		else {
+			for (move : moves) {
+				if move.getName = aMove.getName() {
+					possible = false;
+				}
+			}
+		}
+		if (possible == true) {
 			moves[knownMoves] = aMove;
 			knownMoves++;
 		}

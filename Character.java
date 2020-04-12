@@ -263,7 +263,7 @@ public class Character {
 	 * Adding a move to the character's move array, i.e learning a move.
 	 * @param the move to be learned.
 	 */
-	public void addMove(Move aMove){
+	public void addMove(Move aMove){ 
 		boolean possible = true;
 		if(knownMoves == moves.length()){
 			possible = false;

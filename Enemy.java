@@ -64,7 +64,7 @@ public class Enemy extends Character {
 			 }
 		 } else {
 			 while (this.getKnownmoves() < 4) {
-				 this.addMove(moves.getMove(4));
+				 this.addMove(moves.getMove(4)); 
 			 }
 		 }
   }

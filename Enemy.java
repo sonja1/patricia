@@ -9,6 +9,7 @@ import java.util.Random;
 public class Enemy extends Character {
   private Items droppable;
   private int tier;
+<<<<<<< HEAD
   private ArrayList<Items> droppableItems = new ArrayList<Items>();
   
   Items potion = new Items("Potion", 10,true, {0,0,0,20},1,0);
@@ -26,6 +27,8 @@ public class Enemy extends Character {
   Items key = new Items("Key", 0, false,  {0,0,0,0,}, 1, 0};
   droppableItems.add(6,potion);
   
+=======
+>>>>>>> branch 'master' of https://github.com/sonja1/patricia.git
   
   //Constructors
    /**
@@ -64,7 +67,7 @@ public class Enemy extends Character {
 			 }
 		 } else {
 			 while (this.getKnownmoves() < 4) {
-				 this.addMove(moves.getMove(4)); 
+				 this.addMove(moves.getMove(4));  
 			 }
 		 }
   }

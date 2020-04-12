@@ -8,10 +8,6 @@ public class Player extends Character {
 	private int level;
 	private Move learnableMove = null;
 
-	//Creating the possibleMoves array
-
-
-
 	//Constructor
 
 	public Player(int anXp, int aLevel, String aName, int anHp, int anAtk, int aDef, int aSpd) {

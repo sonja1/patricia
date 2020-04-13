@@ -15,37 +15,39 @@ public class Enemy extends Character {
 	/**
 	 * Creates an enemy with given tier, name, and stats.
 	 */
-	public Enemy (Player aPlayer) {
-		super.setName("Enemy");
-		Random random = new Random();
-		int aTier = random.nextInt(3)-1;
-		this.tier = aTier;
-		this.setAtk((1+aTier/10)*aPlayer.getAtk());
-		this.setDef((1+aTier/10)*aPlayer.getDef());
-		this.setSpd((1+aTier/10)*aPlayer.getSpd());
-		this.setMaxHp((1+aTier/10)*aPlayer.getMaxHp());
-		this.setCurrentHp((1+aTier/10)*aPlayer.getMaxHp());
-		this.droppable = AttainableItems.getItem();
-		if (aPlayer.getLevel() < 4){
-			while (this.getKnownMoves() < 2) {
-				this.addMove(LearnableMoves.getMove(1)); 
-			}
-		}
-		else if (aPlayer.getLevel() < 7) {
-			while (this.getKnownMoves() < 3) {
-				this.addMove(LearnableMoves.getMove(2));
-			}
-		}
-		else if (aPlayer.getLevel() < 10) {
-			while (this.getKnownMoves() < 4) {
-				this.addMove(LearnableMoves.getMove(3));
-			}
-		} else {
-			while (this.getKnownMoves() < 4) {
-				this.addMove(LearnableMoves.getMove(4));  
-			}
-		}
-	}
+	  public Enemy (Player aPlayer) {
+	        super(aPlayer);
+	    		super.setName("Enemy");
+	    		Random random = new Random();
+	    		int aTier = random.nextInt(3)-1;
+	    		this.tier = aTier;
+	    		this.setAtk((int)((double)((1+ (double) aTier/10.0)*aPlayer.getAtk())));
+	    		this.setDef((int)((double)((1+ (double) aTier/10.0)*aPlayer.getDef())));
+	    		this.setSpd((int)((double)((1+ (double) aTier/10.0)*aPlayer.getSpd())));
+	    		this.setMaxHp((int)((double)((1+ (double) aTier/10.0)*aPlayer.getMaxHp())));
+	    		this.setCurrentHp((int)((double)((1+ (double) aTier/10.0)*aPlayer.getMaxHp())));
+	    		this.droppable = AttainableItems.getItem();
+	    		if (aPlayer.getLevel() < 4){
+	    			while (this.getKnownMoves() < 2) {
+	    				this.addMove(LearnableMoves.getMove(1));
+	    			}
+	    		}
+	    		else if (aPlayer.getLevel() < 7) {
+	    			while (this.getKnownMoves() < 3) {
+	    				this.addMove(LearnableMoves.getMove(2));
+	    			}
+	    		}
+	    		else if (aPlayer.getLevel() < 10) {
+	    			while (this.getKnownMoves() < 4) {
+	    				this.addMove(LearnableMoves.getMove(3));
+	    			}
+	    		} else {
+	    			while (this.getKnownMoves() < 4) {
+	    				this.addMove(LearnableMoves.getMove(4));
+	    			}
+	    		}
+	    	}
+
 	/**
 	 * Copy constructor, copies another enemy.
 	 */

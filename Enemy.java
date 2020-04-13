@@ -62,7 +62,11 @@ public class Enemy extends Character {
 	 * @return the enemy's tier.
 	 */
 	public int getTier() {
-		return tier;
+		return this.tier;
+	}
+	
+	public Item getDroppable() {
+		return this.droppable;
 	}
 
 	//Setters

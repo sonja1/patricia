@@ -20,6 +20,16 @@ public class Move {
 		this.setEffectTurns(effectTurns);
 		this.setWillpower(willpower);
 	}
+	public Move (Move copy) {
+		this.setName(copy.name);
+		this.setPower(copy.power);
+		this.setAccuracy(copy.accuracy);
+		this.setEnemyTargetted(copy.enemyTargetted);
+		this.setStatChanges(copy.statChanges);
+		this.setEffectTurns(copy.effectTurns);
+		this.setWillpower(copy.willpower);
+	}
+	
 	//getters and setters
 	public String getName() {
 		return name;

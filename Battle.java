@@ -1,6 +1,6 @@
 public class Battle {
-	private Character character1;
-	private Character character2;
+	protected Character character1;
+	protected Character character2;
 	private Character currentCharacter;
 	private Character otherCharacter;
 	private boolean character1Turn;// true if character1's turn false if character2's turn
@@ -33,17 +33,15 @@ public class Battle {
 		}
 		willpower = (currentCharacter.getSpd()*10 + (currentCharacter.getMaxHp()-currentCharacter.getCurrentHp()))/2;
 	}
-	private void checkState(){
+	protected void checkState(){
 		if(character1.getCurrentHp()<=0){
 			state = -1;
 		}
 		else if(character1.getCurrentHp()<=0){
 			state = 1;
 		}
-		else{
-			if(willpower<=0){
-				this.nextTurn();
-			}
+		else if(willpower<=0){
+			this.nextTurn();
 		}
 	}
 	

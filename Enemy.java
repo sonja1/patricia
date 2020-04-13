@@ -65,7 +65,7 @@ public class Enemy extends Character {
 		return this.tier;
 	}
 	
-	public Item getDroppable() {
+	public Items getDroppable() {
 		return this.droppable;
 	}
 

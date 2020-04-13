@@ -48,6 +48,9 @@ public class Character {
 			this.spd = aSpeed;
 		}
 	}
+	//implicit Constructor solely for the enemy class
+	protected Character(){
+	}
 
 	//Copy constructor
 	
@@ -263,19 +266,8 @@ public class Character {
 	 * Adding a move to the character's move array, i.e learning a move.
 	 * @param the move to be learned.
 	 */
-	public void addMove(Move aMove){ 
-		boolean possible = true;
-		if(knownMoves == moves.length()){
-			possible = false;
-		}
-		else {
-			for (move : moves) {
-				if move.getName = aMove.getName() {
-					possible = false;
-				}
-			}
-		}
-		if (possible == true) {
+	public void addMove(Move aMove){
+		if(knownMoves<moves.length){
 			moves[knownMoves] = aMove;
 			knownMoves++;
 		}

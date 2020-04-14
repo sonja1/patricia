@@ -1,5 +1,8 @@
 import java.util.Random;
 
+/**
+ * Class in which to easily access and nicely organize all items possible in the game.
+ */
 public abstract class AttainableItems {
 	
 	private static final int[] potionStats = {0,0,0,20};
@@ -42,6 +45,9 @@ public abstract class AttainableItems {
 			khakiShorts,bathRobe,potLid,twig
 	};
 	
+	/**
+	 * Method to get a random item from ATTAINABLEITEMS.
+	 */
 	public final static Items getItem(){
 		Random r = new Random();
 		Items item = new Items(ATTAINABLEITEMS[r.nextInt(ATTAINABLEITEMS.length)]);

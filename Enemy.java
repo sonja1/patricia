@@ -13,7 +13,9 @@ public class Enemy extends Character {
 
 	//Constructors
 	/**
-	 * Creates an enemy with given tier, name, and stats.
+	 * Creates an enemy based on a player.
+	 * @param Player aPlayer, the player whos information will be used to make the enemy. 
+	 * This is so that all enemies are made with appropriate stats relative to the player (not too easy/hard).
 	 */
 	  public Enemy (Player aPlayer) {
 	        super(aPlayer);

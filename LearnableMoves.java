@@ -50,7 +50,7 @@ public abstract class LearnableMoves {
 	 * Method to get a move based on a tier. Based on the 2d array LEARNABLEMOVES, the moves are divided
 	 * among 4 "tiers" where tier 1 are the weakest moves and tier 4 are the strongest moves.
 	 * @param int tier, the tier of the move, so the method randomly access moves from the specified tier.
-	 */
+	 */ 
 	public final static Move getMove(int tier){
 		if(tier >= 0 && tier<LEARNABLEMOVES.length){
 			Random r = new Random();

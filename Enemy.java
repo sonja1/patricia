@@ -95,7 +95,7 @@ public class Enemy extends Character {
 		  if (list.isEmpty()) {
 			  return -1;
 		  }
-		  else {
+		  else { 
 			  Random random = new Random();
 			  return list.get(random.nextInt(list.size()));
 	      

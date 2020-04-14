@@ -1,5 +1,9 @@
 import java.util.Random;
 
+/**
+ * Class to nicely organize and manage all possible moves in the game.
+ */
+
 public abstract class LearnableMoves {
 	private static final int[] tackleStats = {0,0,0,0};
 	private static final Move tackle = new Move("Tackle",5,true,tackleStats,0,-40,0.8);
@@ -41,6 +45,11 @@ public abstract class LearnableMoves {
 		{heal, meteorJam, arson, algebra2},
 		{tacticalBrick, spit, thiccSkin, ouch}
 	};
+	
+	/**
+	 * Method to get a move based on a tier. Based on the 2d array LEARNABLEMOVES, the moves are divided
+	 * among 4 "tiers" where tier 1 are the weakest moves and tier 4 are the strongest moves.
+	 */
 	public final static Move getMove(int tier){
 		if(tier >= 0 && tier<LEARNABLEMOVES.length){
 			Random r = new Random();

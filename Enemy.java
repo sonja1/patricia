@@ -86,22 +86,20 @@ public class Enemy extends Character {
 	 * @param aWillpower, an integer. Enemy cannot use moves that require more willpower than the input.
 	 */
 	public int chooseMove(int aWillpower) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		for (int i = 0; i < super.getKnownMoves(); i++) {
-			list.add(i);
-		}
-		for (int number : list) {
-			if ((super.getMove(number)).getWillpower() > aWillpower) {
-				list.remove(number);
-			}
-		}
-		if (list.size() == 0) {
-			return -1;
-		}
-		else {
-			Random random = new Random();
-			return list.get(random.nextInt(list.size())); // 
-		}
-	}
+		  ArrayList<Integer> list = new ArrayList<Integer>();
+		  for (int i = 0; i < super.getKnownMoves(); i++) {
+			  if (this.getMove(i).getWillpower() < aWillpower) {
+	        list.add(i);
+	      }
+	    }
+		  if (list.isEmpty()) {
+			  return -1;
+		  }
+		  else {
+			  Random random = new Random();
+			  return list.get(random.nextInt(list.size()));
+	      
+		  }
+	  }
 
 }

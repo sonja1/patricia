@@ -1,5 +1,8 @@
 import java.util.Arrays;
 
+/**
+ * A class to manage the details and behaviours of moves that are used by characters in battles.
+ */
 public class Move {
 	private final int NUMSTATS = 4;
 	private String name;
@@ -10,6 +13,11 @@ public class Move {
 	private int effectTurns;
 	private int willpower;
 
+	/**
+	 * Move constructor. Creates move with the parameters specified below.
+	 * @param name, willpower, enemytargetted, statChanges, effectTurns, power, accuracy are instance variables
+	 * of each move.
+	 */
 	public Move (String name,int willpower, boolean enemyTargetted, int[] statChanges,
 			int effectTurns, int power, double accuracy) {
 		this.setName(name);
@@ -20,6 +28,11 @@ public class Move {
 		this.setEffectTurns(effectTurns);
 		this.setWillpower(willpower);
 	}
+	
+	/**
+	 * Copy constructor. Creates a move that is a copy of another.
+	 * @param aCopy, the move which will have its information copied.
+	 */
 	public Move (Move copy) {
 		this.setName(copy.name);
 		this.setPower(copy.power);

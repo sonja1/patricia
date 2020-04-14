@@ -85,20 +85,37 @@ public class Items {
 	}
 	
 	/**
-	 * Setter method for the 
+	 * Setter method for a particular stat change of the items. 
+	 * @param i, the index of the particular stat to be changed, and change, the number reprenting how the 
+	 * item will affect that stat.
 	 */
 	public void setStatChange(int i, int change) {
 		if (i<NUMSTATS) {
 			statChange[i] = change;
 		}
 	}
+	
+	/**
+	 * Setter for entire stat change array.
+	 * @param newStatChange, array represents stat changes for all stats (hp,atk,def,spd).
+	 */
 	public void setStatChanges(int[] newStatChange) {
 		System.arraycopy(newStatChange, 0, statChange, 0, NUMSTATS);
 	}
+	
+	/**
+	 * Setter for the power of an item.
+	 * @param change, the new power of the item.
+	 */
 	public void setPower(int change){
 		power = change;
 	}
-	public void setWillpower(int change){
+	
+	/**
+	 * Setter for the willpower of the item.
+	 * @param change, the new willpower of the item.
+	 */
+	  public void setWillpower(int change){
 		willpower = change;
 	}
 	

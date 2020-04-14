@@ -9,6 +9,10 @@ public class Player extends Character {
   private Move learnableMove = null;
   
   //Constructor
+  /**
+   * Creates a player.
+   * @param String aName, the player's name. The player is created with default stats using the super constructor.
+   */
   
   public Player(String aName) {
 	  super(aName, 100, 10 ,10 ,10);
@@ -52,7 +56,10 @@ public class Player extends Character {
 		  } 
 	  } 
   }
-  
+  /**
+   * The player learns a move.
+   * @param int i, the index of the move being replaced with the player's learnable move.
+   */
   public void learnMove(int i){
 	  if(learnableMove != null){
 		  this.replaceMove(i, learnableMove);

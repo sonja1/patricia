@@ -13,9 +13,7 @@ public class Enemy extends Character {
 
 	//Constructors
 	/**
-	 * Creates an enemy based on a player.
-	 * @param Player aPlayer, the player whos information will be used to make the enemy. 
-	 * This is so that all enemies are made with appropriate stats relative to the player (not too easy/hard).
+	 * Creates an enemy with given tier, name, and stats.
 	 */
 	  public Enemy (Player aPlayer) {
 	        super(aPlayer);
@@ -29,23 +27,13 @@ public class Enemy extends Character {
 	    		this.setMaxHp((int)((double)((1+ (double) aTier/10.0)*aPlayer.getMaxHp())));
 	    		this.setCurrentHp((int)((double)((1+ (double) aTier/10.0)*aPlayer.getMaxHp())));
 	    		this.droppable = AttainableItems.getItem();
-	    		if (aPlayer.getLevel() < 4){
-	    			while (this.getKnownMoves() < 2) {
-	    				this.addMove(LearnableMoves.getMove(1));
+	    		this.addMove(LearnableMoves.getMove(-1));
+	    		for(int i = 0; i<aPlayer.getLevel()/3; i++) {
+	    			if(this.getKnownMoves()<4) {
+	    				this.addMove(LearnableMoves.getMove(i));
 	    			}
-	    		}
-	    		else if (aPlayer.getLevel() < 7) {
-	    			while (this.getKnownMoves() < 3) {
-	    				this.addMove(LearnableMoves.getMove(2));
-	    			}
-	    		}
-	    		else if (aPlayer.getLevel() < 10) {
-	    			while (this.getKnownMoves() < 4) {
-	    				this.addMove(LearnableMoves.getMove(3));
-	    			}
-	    		} else {
-	    			while (this.getKnownMoves() < 4) {
-	    				this.addMove(LearnableMoves.getMove(4));
+	    			else {
+	    				this.replaceMove(0, LearnableMoves.getMove(i));
 	    			}
 	    		}
 	    	}

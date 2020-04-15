@@ -8,15 +8,18 @@ public class Battle {
 	private int willpower; //available actions of the current player
 
 	public Battle(Character aCharacter1, Character aCharacter2) {
+		this(aCharacter1, aCharacter2, true);
+		this.nextTurn();
+	}
+	protected Battle(Character aCharacter1, Character aCharacter2, boolean differentiate) {
 		character1 = aCharacter1;
 		character2 = aCharacter2;
-		if(character1.getSpd()>character2.getSpd()){
+		if(character1.getSpd()>=character2.getSpd()){
 			character1Turn = false;
 		}
 		else{
 			character1Turn = true;
 		}
-		this.nextTurn();
 	}
 	public void nextTurn(){
 		if(character1Turn){
@@ -37,12 +40,13 @@ public class Battle {
 		if(character1.getCurrentHp()<=0){
 			state = -1;
 		}
-		else if(character1.getCurrentHp()<=0){
+		else if(character2.getCurrentHp()<=0){
 			state = 1;
 		}
 		else if(willpower<=0){
 			this.nextTurn();
 		}
+		System.out.println(state);
 	}
 	
 	public void useMove(int moveIndex){

@@ -1,3 +1,4 @@
+
 /**
  * Represents a playable character in the game.
  * Has a level and xp (experience points).
@@ -6,13 +7,9 @@
 public class Player extends Character {
   private int xp = 0;
   private int level =1;
-  private Move learnableMove = null;
+//  private Move learnableMove = null;
   
   //Constructor
-  /**
-   * Creates a player.
-   * @param String aName, the player's name. The player is created with default stats using the super constructor.
-   */
   
   public Player(String aName) {
 	  super(aName, 100, 10 ,10 ,10);
@@ -51,26 +48,20 @@ public class Player extends Character {
 				  this.addMove(newMove);
 			  }
 			  else{
-				  learnableMove = newMove;
+				  this.replaceMove(0,newMove);
 			  }
 		  } 
 	  } 
-  }
-  /**
-   * The player learns a move.
-   * @param int i, the index of the move being replaced with the player's learnable move.
-   */
-  public void learnMove(int i){
-	  if(learnableMove != null){
-		  this.replaceMove(i, learnableMove);
-		  learnableMove = null;
-	  }
   }
   
   /**
    * Allows player to use their xp to increase their stats.
    */
-  public void allotStats(int addAtk, int addDef, int addSpeed, int addHp) {
+  public void allotStats(int[] statArr) {
+	  int addAtk = statArr[0];
+	  int addDef = statArr[1];
+	  int addSpeed = statArr[2];
+	  int addHp = statArr[3];
 	  if (addAtk+addDef+addSpeed+addHp == xp){
 		  super.setAtk(super.getAtk()+addAtk);
 	      super.setDef(super.getDef()+addDef);

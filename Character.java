@@ -382,6 +382,12 @@ public class Character {
 			}
 		}
 	}
+	
+	public void removeTempChanges() {
+		while(tempStatChanges.size()!=0) {
+			statsNextTurn();
+		}
+	}
 	/**
 	 * toString method, converts information about the character in the form of strings so it can be displayed nicely.
 	 */

@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Random;
-
 /**
  * Represents an enemy in the game.
  * Child of character class, also has a tier and a droppable item.

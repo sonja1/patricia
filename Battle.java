@@ -1,3 +1,8 @@
+package logicClasses;
+
+import logicClasses.Character;
+import logicClasses.Move;
+
 public class Battle {
 	protected Character character1;
 	protected Character character2;

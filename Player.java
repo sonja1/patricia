@@ -1,3 +1,8 @@
+package logicClasses;
+
+import logicClasses.Character;
+import logicClasses.LearnableMoves;
+import logicClasses.Move;
 
 /**
  * Represents a playable character in the game.
@@ -53,6 +58,13 @@ public class Player extends Character {
 		  } 
 	  } 
   }
+  
+//  public void learnMove(int i){
+//	  if(learnableMove != null){
+//		  this.replaceMove(i, learnableMove);
+//		  learnableMove = null;
+//	  }
+//  }
   
   /**
    * Allows player to use their xp to increase their stats.
